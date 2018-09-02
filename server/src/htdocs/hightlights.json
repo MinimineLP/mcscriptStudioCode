@@ -1,0 +1,9 @@
+{
+   "mcscript": "mcscript",
+   "mcfunction": "mcfunction",
+   "mcmeta": "application/ld+json",
+   "json": "application/ld+json",
+   "md": "gfm",
+  "js": "javascript",
+  "html": "htmlmixed"
+}

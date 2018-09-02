@@ -1,0 +1,5 @@
+*.bat
+node_modules
+.atomignore
+*.zip
+client/compile.js

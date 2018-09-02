@@ -1,0 +1,30 @@
+{
+  "name": "mcscriptstudiocode",
+  "version": "0.0.1",
+  "description": "A mcscript editor",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo no test specified",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miniminelp/mcscriptstudiocode.git"
+  },
+  "keywords": [
+    "editor",
+    "mcscript"
+  ],
+  "author": "Minimine",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/miniminelp/mcscriptstudiocode/issues"
+  },
+  "homepage": "https://github.com/miniminelp/mcscriptstudiocode#readme",
+  "dependencies": {
+    "electron-debug": "^2.0.0"
+  },
+  "devDependencies": {
+    "electron": "^2.0.7"
+  }
+}

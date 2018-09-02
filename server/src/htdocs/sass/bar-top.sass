@@ -1,0 +1,78 @@
+// Colors
+$invisible: rgba(0,0,0,0)
+$gray1: #c8c8c8
+$gray2: #b4b4b4
+
+div#bar-top
+  padding: 0px
+  margin: 0px
+  background-color: $gray1
+  color: #000
+  width: 100%
+  height: 20px
+  font-size: 12px
+
+  -moz-user-select: -moz-none
+  -khtml-user-select: none
+  -webkit-user-select: none
+  -ms-user-select: none
+  user-select: none
+
+  & ul
+    display: inline-block
+    margin: 0px
+    padding: 0px
+    position: relative
+    top: 2px
+
+    & li
+      display: inline
+      padding: 4px
+      background-color: $gray1
+      cursor: default
+      position: relative
+      -moz-user-select: -moz-none
+      -khtml-user-select: none
+      -webkit-user-select: none
+      -ms-user-select: none
+      user-select: none
+
+      &:hover
+        background-color: $gray2
+
+      & p
+        padding: 0px
+        margin: 0px
+        display: inline
+
+      & div
+        position: relative
+
+#dropdown
+  background-color: #fff
+
+  -moz-user-select: -moz-none
+  -khtml-user-select: none
+  -webkit-user-select: none
+  -ms-user-select: none
+  user-select: none
+  display: block
+  background-color: #fff
+  z-index: 1000
+  position: absolute
+  top: 20px
+  padding: 0px
+
+  & table
+    border: none
+    padding: none
+
+    & tr
+      padding: none
+
+      &:hover
+        background-color: $gray2
+
+      & th
+        padding: 2px
+        text-align: left

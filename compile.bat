@@ -1,5 +1,10 @@
 @echo off
-echo [typescript] compiling typescript
-start /min cmd . /k "tsc src/index.ts&exit"
-ping 127.0.0.1 -n 6 > nul
-gulp all
+
+echo [Compiler] Compiling typescript
+cd server
+cd src > nul
+forfiles /s /m *.ts /c "cmd /c tsc @path" > nul
+cd .. > nul
+echo [Compiler] Compressing and compiling sass + js
+cmd /c gulp all > nul
+cd ..
