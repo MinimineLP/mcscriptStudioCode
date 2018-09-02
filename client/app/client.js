@@ -1,15 +1,22 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, dialog} = require('electron')
 const fs = require("fs")
+const server = require("mcscriptstudiocodehost");
+
 require('electron-debug')({showDevTools: false}); // Debugs
 require("./util.js")
 var icon = __dirname + '/assets/images/icon.png';
+
+
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
-function createWindow () {
+async function createWindow () {
+
+  server["default"](dialog.showOpenDialog({properties: ['openFile', 'openDirectory', 'multiSelections']}),mcscriptStudioCode.util.address.port);
+
   // Create the browser window.
   mainWindow = new BrowserWindow({width: 800, height: 600, maximized: true, icon: icon})
 
