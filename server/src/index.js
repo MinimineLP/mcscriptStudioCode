@@ -2,4 +2,7 @@
 "use strict";
 exports.__esModule = true;
 var api_1 = require("./api");
-api_1["default"](".", 80);
+var port = 80;
+var position = ".";
+api_1["default"](position, port);
+console.log("Running server on port " + port);

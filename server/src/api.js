@@ -5,13 +5,36 @@ var http = require("http");
 var fs = require("fs");
 var path = require("path");
 var server_1 = require("./server");
-function startServer(p, port) {
+exports.ServerSideApplication = server_1["default"];
+var PluginManager_1 = require("./PluginManager");
+exports.PluginManager = PluginManager_1.PluginManager;
+exports.RequestEvent = PluginManager_1.RequestEvent;
+var SiteAPI = require("./siteapi");
+exports.SiteAPI = SiteAPI;
+exports["default"] = startServer;
+function createServer(p, loadPlugins) {
     if (p === void 0) { p = "."; }
-    if (port === void 0) { port = 80; }
+    if (loadPlugins === void 0) { loadPlugins = true; }
+    var manager = new PluginManager_1.PluginManager();
+    if (loadPlugins) {
+        manager.loadPlugins(__dirname + "/../plugins");
+        manager.setupPlugins();
+        manager.startPlugins();
+        SiteAPI.loadSite({ host: "raw.githubusercontent.com", path: '/MinimineLP/MCScriptStudioCode-core-plugins/master/plugins-core.json', protocoll: 'https' }, function (ret) {
+            for (var _i = 0, _a = JSON.parse(ret); _i < _a.length; _i++) {
+                var url = _a[_i];
+                manager.installPlugin(url, __dirname + "/../plugins");
+            }
+        });
+    }
     var basedir = __dirname + "/htdocs";
     var server = new server_1["default"](fs.realpathSync(p));
     var contentTypes = JSON.parse(fs.readFileSync(__dirname + "/contenttypes.json").toString());
-    http.createServer(function (request, response) {
+    var httpserver = http.createServer(function (request, response) {
+        request.url = request.url.split("#")[0].split("?")[0];
+        var event = manager.fireEvent(new PluginManager_1.RequestEvent(request, response));
+        if (event.canceled)
+            return;
         if (request.url.charAt(request.url.length - 1) == "/")
             request.url += "index.html";
         console.log("request starting by address \"" + request.connection.remoteAddress + "\": " + request.url + "...");
@@ -48,8 +71,16 @@ function startServer(p, port) {
                 response.end(content, 'utf-8');
             }
         });
-    }).listen(port);
-    console.log("Running server on port " + port);
-    console.log("Access it via this link: localhost:\"" + port + "\"");
+    });
+    return { server: httpserver, manager: manager };
 }
-exports["default"] = startServer;
+exports.createServer = createServer;
+function startServer(p, port, loadPlugins) {
+    if (p === void 0) { p = "."; }
+    if (port === void 0) { port = 80; }
+    if (loadPlugins === void 0) { loadPlugins = true; }
+    var server = createServer(p, loadPlugins);
+    server.server.listen(port);
+    return server;
+}
+exports.startServer = startServer;

@@ -1,6 +1,6 @@
 {
   "name": "mcscriptstudiocode",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A mcscript editor",
   "main": "main.js",
   "scripts": {
@@ -24,7 +24,7 @@
   "dependencies": {
     "electron-debug": "^2.0.0",
     "electron-prompt": "^1.2.0",
-    "mcscriptstudiocodehost": "0.0.1"
+    "mcscriptstudiocodehost": "^0.0.3"
   },
   "devDependencies": {
     "electron": "^2.0.7"

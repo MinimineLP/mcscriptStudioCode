@@ -1,6 +1,6 @@
 {
   "name": "mcscriptstudiocodehost",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "A mcscript editor",
   "main": "app/api.js",
   "scripts": {
@@ -23,8 +23,12 @@
     "url": "https://github.com/miniminelp/mcscriptstudiocode/issues"
   },
   "homepage": "https://github.com/miniminelp/mcscriptstudiocode#readme",
-  "dependencies": {},
+  "dependencies": {
+    "extract-zip": "^1.6.7",
+    "jszip": "^3.1.5"
+  },
   "devDependencies": {
+    "@types/jszip": "^3.1.4",
     "@types/node": "^10.5.8",
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
@@ -43,7 +47,8 @@
     "gulp-jsonminify": "^1.1.0",
     "gulp-minify": "^2.1.0",
     "gulp-rename": "^1.2.2",
-    "gulp-sass": "^4.0.1"
+    "gulp-sass": "^4.0.1",
+    "gulp-uglify": "^3.0.1"
   },
   "preferGlobal": "true"
 }

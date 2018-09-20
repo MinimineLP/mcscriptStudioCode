@@ -2,3 +2,8 @@
 node_modules
 .atomignore
 client/compile.js
+.mcscriptStudioCodeIgnore
+.mcscriptStudioCode
+server/plugins
+client/win32-ia32.js
+client/win32-x64.js
