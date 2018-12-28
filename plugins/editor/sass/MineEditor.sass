@@ -1,0 +1,98 @@
+.MineEditor
+  display: relative
+  height: auto
+  background: #414141
+  border-left: 1px solid black
+  height: 100%
+
+.MineEditor-menuebar
+  background: #414141
+  padding-left: 0px
+  width: 100%
+  grid-template-columns: repeat(auto-fill, 50px)
+  grid-column-gap: 0px
+  -moz-user-select: -moz-none
+  -khtml-user-select: none
+  -webkit-user-select: none
+  -ms-user-select: none
+  user-select: none
+
+  & button
+    background: rgba(0, 0, 0, 0)
+    margin: 0px
+    color: #ffffff
+    font-size: 20px
+    padding: 10px
+    cursor: pointer
+    transition: all 250ms
+    border: none
+    outline: none
+    &:hover
+      background: #47b2ff
+      color: #fffff
+
+.MineEditor-canvas
+  font: 16px/1.5em arial
+  background: #414141
+  overflow-wrap: break-word
+  width: 96%
+  height: 400px
+  padding: 2%
+  color: #fff
+  overflow: auto
+
+  &:focus
+    outline: none
+  & a
+    color: rgb(70, 70, 70)
+    cursor: text
+    &:hover
+      color: rgb(120, 120, 120)
+      cursor: text
+
+.MineEditor-bottom
+  height: 20px
+  overflow: hidden
+  -moz-user-select: -moz-none
+  -khtml-user-select: none
+  -webkit-user-select: none
+  -ms-user-select: none
+  user-select: none
+  & p
+    height: 20px
+    width: 24%
+    margin: 0px
+    display: inline-block
+    font-family: sans-serif
+    text-align: center
+    color: rgb(150, 150, 150)
+    &.MineEditor-credits
+      border-right: 0px
+      display: inline-block
+      & a
+        cursor: pointer
+        color: rgb(200, 200, 200)
+        text-decoration: none
+
+.MineEditor p.MineEditor-credits a:hover
+  color: rgb(180, 180, 180)
+
+body.ctrl_pressed .MineEditor-canvas a:hover
+  cursor: pointer
+
+#MineEditor_tooltip
+  background: rgba(0, 0, 0, 0.5)
+  position: absolute
+  transform: translate(-50%, 0%)
+  border-radius: 3px
+  color: #fff
+  display: inline
+  font-family: sans-serif
+
+/* Placeholder support for contenteditable divs
+
+.MineEditor div[contenteditable]:empty::before
+  content: attr(placeholder)
+  display: block
+  /* For Firefox
+  color: rgb(180, 180, 180)

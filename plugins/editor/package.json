@@ -1,0 +1,23 @@
+{
+  "name": "editor",
+  "url": "https://github.com/miniminelp/mcscriptStudioCode",
+  "author": "Minimine",
+  "author-url": "https://github.com/miniminelp/",
+  "version": "0.0.1",
+  "main": "editor.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MinimineLP/MCScriptStudioCode.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MinimineLP/MCScriptStudioCode/issues"
+  },
+  "homepage": "https://github.com/MinimineLP/MCScriptStudioCode#readme",
+  "dependencies": {
+    "codemirror": "^5.40.2",
+    "jquery": "^3.3.1",
+    "sweetalert": "^2.1.0"
+  },
+  "devDependencies": {}
+}

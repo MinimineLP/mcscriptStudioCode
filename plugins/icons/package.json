@@ -1,0 +1,22 @@
+{
+  "name": "icons",
+  "url": "https://github.com/miniminelp/mcscriptStudioCode",
+  "author": "Minimine",
+  "author-url": "https://github.com/miniminelp/",
+  "version": "0.0.1",
+  "main": "icons.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MinimineLP/MCScriptStudioCode.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MinimineLP/MCScriptStudioCode/issues"
+  },
+  "homepage": "https://github.com/MinimineLP/MCScriptStudioCode#readme",
+  "dependencies": {
+    "@mdi/font": "^2.8.94",
+    "material-icons": "^0.2.3"
+  },
+  "devDependencies": {}
+}

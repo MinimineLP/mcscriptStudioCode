@@ -1,0 +1,27 @@
+{
+  "name": "mcscript_base",
+  "url": "https://github.com/miniminelp/mcscriptStudioCode",
+  "author": "Minimine",
+  "author-url": "https://github.com/miniminelp/",
+  "version": "0.0.1",
+  "main": "mcscript_base.js",
+  "pluginDependencies": [
+    {
+      "name": "shortcutbar",
+      "url": "https://raw.githubusercontent.com/MinimineLP/MCScriptStudioCode/master/plugins/shortcutbar/plugin.json"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MinimineLP/MCScriptStudioCode.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MinimineLP/MCScriptStudioCode/issues"
+  },
+  "homepage": "https://github.com/MinimineLP/MCScriptStudioCode#readme",
+  "dependencies": {
+    "mcscript": "^0.2.0"
+  },
+  "devDependencies": {}
+}

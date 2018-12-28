@@ -1,0 +1,1 @@
+{"version":3,"sources":["style.sass"],"names":[],"mappings":"AAAA,KAAA,KACE,SAAA,OACA,YAAA,WACA,OAAA,EACA,QAAA","file":"style.min.css","sourcesContent":["html, body {\n  overflow: hidden;\n  font-family: sans-serif;\n  margin: 0px;\n  padding: 0px; }\n"]}

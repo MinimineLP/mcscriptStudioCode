@@ -1,0 +1,11 @@
+{
+  "name": "@mcscriptstudiocodeplugins/settings",
+  "version": "0.0.1",
+  "description": "types for settings plugin",
+  "main": "Settings.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Minimine",
+  "license": "MIT"
+}

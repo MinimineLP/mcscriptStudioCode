@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "lib": ["es2015","es6","DOM","es7"]
+  },
+  "files": [
+    "settings.ts",
+    "scripts/Plugins.ts",
+    "scripts/SettingsAPI.ts"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "@mcscriptstudiocodeplugins/shortcutbar",
+  "version": "0.0.1",
+  "description": "types for shortcutbar plugin",
+  "main": "shortcutbar.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Minimine",
+  "license": "MIT"
+}

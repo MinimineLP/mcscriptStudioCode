@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "lib": ["es6","DOM"]
+  },
+  "files": [
+    "main.ts",
+    "index.ts",
+    "test_web.ts"
+  ]
+}

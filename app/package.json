@@ -1,0 +1,24 @@
+{
+  "name": "mcscriptStudioCode",
+  "version": "0.0.3",
+  "description": "A editor for mcscript",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/MinimineLP/mcscriptStudioCode",
+  "keywords": [],
+  "author": "MinimineLP",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/js-yaml": "^3.11.2",
+    "@types/npm": "^2.0.29",
+    "electron": "^3.0.7"
+  },
+  "dependencies": {
+    "extract-zip": "^1.6.7",
+    "jquery": "^3.3.1",
+    "js-yaml": "^3.12.0",
+    "npmi": "^3.0.0"
+  }
+}

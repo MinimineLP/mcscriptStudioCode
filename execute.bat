@@ -1,3 +1,0 @@
-@echo off
-echo [Executor] Executing...
-server

@@ -1,0 +1,25 @@
+{
+  "name": "ignorefile",
+  "url": "https://github.com/miniminelp/mcscriptStudioCode",
+  "author": "Minimine",
+  "author-url": "https://github.com/miniminelp/",
+  "version": "0.0.1",
+  "main": "ignorefile.js",
+  "pluginDependencies": [
+    {
+      "name": "explorer",
+      "url": "https://raw.githubusercontent.com/MinimineLP/MCScriptStudioCode-core-plugins/master/editor/plugin.json"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MinimineLP/MCScriptStudioCode.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MinimineLP/MCScriptStudioCode/issues"
+  },
+  "homepage": "https://github.com/MinimineLP/MCScriptStudioCode#readme",
+  "dependencies": {},
+  "devDependencies": {}
+}

@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "lib": ["es2015","es6","DOM","es7"]
+  },
+  "files": [
+    "testserver.ts"
+  ]
+}

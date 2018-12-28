@@ -1,0 +1,21 @@
+{
+  "name": "shortcutbar",
+  "url": "https://github.com/miniminelp/MCScriptStudioCode",
+  "author": "Minimine",
+  "author-url": "https://github.com/miniminelp/",
+  "version": "0.0.1",
+  "main": "shortcutbar.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MinimineLP/MCScriptStudioCode.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MinimineLP/MCScriptStudioCode/issues"
+  },
+  "homepage": "https://github.com/MinimineLP/MCScriptStudioCode#readme",
+  "dependencies": {
+    "jquery": "^3.3.1"
+  },
+  "devDependencies": {}
+}
