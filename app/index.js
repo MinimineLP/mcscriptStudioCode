@@ -35,7 +35,6 @@ var manager = new PluginManager_1.PluginManager();
 Preloader.start();
 console.log("installing plugins...");
 SiteAPI.loadSite({ host: "raw.githubusercontent.com", path: '/MinimineLP/mcscriptStudioCode/master/plugins/core-plugins.json', protocoll: 'https' }, function (ret) {
-    console.log(ret);
     for (var _i = 0, _a = JSON.parse(ret); _i < _a.length; _i++) {
         var url = _a[_i];
         manager.installPlugin(url, datafolder + "/plugins");

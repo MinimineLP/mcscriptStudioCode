@@ -432,8 +432,8 @@ class PluginManager {
             ) {
               if (err) console.error("Error installing plugin "+res.name+" from url "+url,err);
               else {
-                //fs.unlinkSync(zipfile);
-                //THIS.readyPlugin(pluginfolder, res.name);
+                fs.unlinkSync(zipfile);
+                THIS.readyPlugin(pluginfolder, res.name);
               }
             });
           }
