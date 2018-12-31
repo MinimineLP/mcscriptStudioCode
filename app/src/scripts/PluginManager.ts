@@ -422,18 +422,18 @@ class PluginManager {
     SiteAPI.loadSite(SiteAPI.parseURL(url), function(res) {
       res = JSON.parse(res);
       if (!fs.existsSync(pluginfolder + "/" + res.name)) {
-        let zipfile: string = `${pluginfolder}/${res.name}.tmp.zip`;
+        let zipfile: string = `${pluginfolder}/${res.name.toLowerCase()}.tmp.zip`;
         SiteAPI.downloadFile(
           zipfile,
           res.versions[res.newestversion],
           function() {
-            extract(zipfile, { dir: `${pluginfolder}/${res.name}` }, function(
+            extract(zipfile, { dir: `${pluginfolder}/${res.name.toLowerCase()}` }, function(
               err
             ) {
-              if (err) console.log(err);
+              if (err) console.error("Error installing plugin "+res.name+" from url "+url,err);
               else {
-                fs.unlinkSync(zipfile);
-                THIS.readyPlugin(pluginfolder, res.name);
+                //fs.unlinkSync(zipfile);
+                //THIS.readyPlugin(pluginfolder, res.name);
               }
             });
           }

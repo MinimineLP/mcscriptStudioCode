@@ -8,5 +8,9 @@ Select the version that works for you, and download it *here* (Broken for now. P
 ## License
 MIT license, see [here](license)
 
+## Authors
+
+* **Minimine** - *Initial work* - [Minimine](https://github.com/MinimineLP)
+
 ## Issues
-Please report bugs with the github issue function.
+Please report bugs with the [issue function](https://github.com/MinimineLP/mcscriptStudioCode/issues).

@@ -2,17 +2,6 @@ import * as http from "http";
 import * as https from "https";
 import * as fs from "fs";
 
-declare global {
-  interface String {
-    startsWith(searchString): boolean;
-  }
-}
-
-String.prototype.startsWith = function(searchString) {
-  let position = 0;
-  return this.indexOf(searchString, position) === position;
-};
-
 export async function loadSite(
   host: string | any,
   then: Function,
@@ -95,11 +84,13 @@ export function downloadFile(
   then: (fd: number) => void = function() {}
 ) {
   let file = fs.createWriteStream(out);
-  let request;
-  if (url.startsWith("https"))
+  let request:http.ClientRequest;
+  if (url.startsWith("https")) {
+    console.log(url, out, "https")
     request = https.get(url, function(response) {
       response.pipe(file);
     });
+  }
   else
     request = http.get(url, function(response) {
       response.pipe(file);
