@@ -12,5 +12,27 @@ MIT license, see [here](license)
 
 * **Minimine** - *Initial work* - [Minimine](https://github.com/MinimineLP)
 
+## Download
+- **Windows ia32: **
+[portable (.tar.gz)](https://raw.githubusercontent.com/MinimineLP/mcscriptStudioCode/master/builds/win32/ia32/mcscriptStudioCode-win32-ia32-portable.tar.gz) |
+[portable (.zip)](https://raw.githubusercontent.com/MinimineLP/mcscriptStudioCode/master/builds/win32/ia32/mcscriptStudioCode-win32-ia32-portable.zip) |
+[installer (.msi)](https://raw.githubusercontent.com/MinimineLP/mcscriptStudioCode/master/builds/win32/ia32/mcscriptstudiocode-win32-ia32.msi) |
+[installer (.exe)](https://raw.githubusercontent.com/MinimineLP/mcscriptStudioCode/master/builds/win32/ia32/mcscriptstudiocode-win32-ia32.exe)
+
+- **Windows x64: **
+[portable (.tar.gz)](https://raw.githubusercontent.com/MinimineLP/mcscriptStudioCode/master/builds/win32/x64/mcscriptStudioCode-win32-x64-portable.tar.gz) |
+[portable (.zip)](https://raw.githubusercontent.com/MinimineLP/mcscriptStudioCode/master/builds/win32/x64/mcscriptStudioCode-win32-x64-portable.zip) |
+[installer (.msi)](https://raw.githubusercontent.com/MinimineLP/mcscriptStudioCode/master/builds/win32/x64/mcscriptstudiocode-win32-x64.msi) |
+[installer (.exe)](https://raw.githubusercontent.com/MinimineLP/mcscriptStudioCode/master/builds/win32/x64/mcscriptstudiocode-win32-x64.exe)
+
+- **Linux ia32: **
+[portable (.tar.gz)](https://raw.githubusercontent.com/MinimineLP/mcscriptStudioCode/master/builds/linux/ia32/mcscriptStudioCode-linux-ia32-portable.tar.gz) |
+[portable (.zip)](https://raw.githubusercontent.com/MinimineLP/mcscriptStudioCode/master/builds/linux/ia32/mcscriptStudioCode-linux-ia32-portable.zip)
+
+- **Linux x64: **
+[portable (.tar.gz)](https://raw.githubusercontent.com/MinimineLP/mcscriptStudioCode/master/builds/linux/x64/mcscriptStudioCode-linux-x64-portable.tar.gz) |
+[portable (.zip)](https://raw.githubusercontent.com/MinimineLP/mcscriptStudioCode/master/builds/linux/x64/mcscriptStudioCode-linux-x64-portable.zip)
+
+
 ## Issues
 Please report bugs with the [issue function](https://github.com/MinimineLP/mcscriptStudioCode/issues).

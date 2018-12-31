@@ -97,13 +97,13 @@ class PluginManager {
     if (fs.existsSync(`${plugindir}/node_modules/@mcscriptstudiocode`))
       deleteFolderRecursive(`${plugindir}/node_modules/@mcscriptstudiocode`);
     copyFolderRecursiveSync(
-      "types/@mcscriptstudiocode",
+      __dirname + "/../../types/@mcscriptstudiocode",
       `${plugindir}/node_modules`
     );
     if (fs.existsSync(`${plugindir}/node_modules/mcscriptstudiocode`))
       deleteFolderRecursive(`${plugindir}/node_modules/mcscriptstudiocode`);
     copyFolderRecursiveSync(
-      "types/mcscriptstudiocode",
+      __dirname + "/../../types/mcscriptstudiocode",
       `${plugindir}/node_modules`
     );
     if (fs.existsSync(`${plugindir}/node_modules/@mcscriptstudiocodeplugins`))
@@ -185,7 +185,6 @@ class PluginManager {
     callback: CallbackFunction = function() {}
   ): void {
     let THIS = this;
-    THIS.readyPluginDir(plugindir);
     if (!fs.existsSync(plugindir)) fs.mkdirSync(plugindir);
     let plugins = this.getPlugins(plugindir);
     let x: boolean[] = [];
@@ -417,11 +416,13 @@ class PluginManager {
    * @param url the url
    * @param pluginfolder the pluginfoder
    */
-  installPlugin(url: string, pluginfolder: string) {
+  installPlugin(url: string, pluginfolder: string, callback:CallbackFunction = function(){}):boolean {
     let THIS = this;
+    let ret = false;
     SiteAPI.loadSite(SiteAPI.parseURL(url), function(res) {
       res = JSON.parse(res);
       if (!fs.existsSync(pluginfolder + "/" + res.name)) {
+        ret = true;
         let zipfile: string = `${pluginfolder}/${res.name.toLowerCase()}.tmp.zip`;
         SiteAPI.downloadFile(
           zipfile,
@@ -433,13 +434,18 @@ class PluginManager {
               if (err) console.error("Error installing plugin "+res.name+" from url "+url,err);
               else {
                 fs.unlinkSync(zipfile);
-                THIS.readyPlugin(pluginfolder, res.name);
+                THIS.readyPlugin(pluginfolder, res.name,function() {
+                  callback(null, true)
+                });
               }
             });
           }
         );
+      } else {
+        callback(null, false)
       }
     });
+    return ret;
   }
 }
 
@@ -1216,7 +1222,7 @@ class OnListener implements Listener {
  *
  */
 interface CallbackFunction {
-  (err?: Error | undefined, res?: string | undefined): void;
+  (err?: Error | undefined, res?: any | undefined): void;
 }
 
 /**

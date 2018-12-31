@@ -38,8 +38,6 @@ function createWindow() {
   mainWindow.setMenu(menu);
   mainWindow.loadFile(__dirname + "/index.html");
 
-  mainWindow.webContents.openDevTools();
-
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
 

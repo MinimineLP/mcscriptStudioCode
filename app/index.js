@@ -33,11 +33,36 @@ if (!fs.existsSync(datafolder))
     fs.mkdirSync(datafolder);
 var manager = new PluginManager_1.PluginManager();
 Preloader.start();
-console.log("installing plugins...");
+manager.readyPluginDir(datafolder + "/plugins");
 SiteAPI.loadSite({ host: "raw.githubusercontent.com", path: '/MinimineLP/mcscriptStudioCode/master/plugins/core-plugins.json', protocoll: 'https' }, function (ret) {
+    var ready = [];
+    var rets = [];
+    var _loop_1 = function (url) {
+        var i = ready.length;
+        ready.push(false);
+        manager.installPlugin(url, datafolder + "/plugins", function (_err, ret) {
+            rets.push(ret);
+            ready[i] = true;
+            var rel = true;
+            for (var _i = 0, ready_1 = ready; _i < ready_1.length; _i++) {
+                var e = ready_1[_i];
+                if (e == false)
+                    rel = false;
+            }
+            if (rel) {
+                for (var _a = 0, rets_1 = rets; _a < rets_1.length; _a++) {
+                    var e = rets_1[_a];
+                    if (e) {
+                        location.reload();
+                        return;
+                    }
+                }
+            }
+        });
+    };
     for (var _i = 0, _a = JSON.parse(ret); _i < _a.length; _i++) {
         var url = _a[_i];
-        manager.installPlugin(url, datafolder + "/plugins");
+        _loop_1(url);
     }
 });
 manager.loadPlugins(datafolder + "/plugins", function () {
@@ -58,7 +83,7 @@ manager.loadPlugins(datafolder + "/plugins", function () {
         };
         return MenuActionAPI;
     }());
-    electron.ipcRenderer.on("menu_action", function (x, arg) {
+    electron.ipcRenderer.on("menu_action", function (_x, arg) {
         var menuactionapi = manager.api.getAPI("menu_action");
         menuactionapi.trigger(arg);
     });

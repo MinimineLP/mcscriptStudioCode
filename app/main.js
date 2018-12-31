@@ -33,7 +33,6 @@ function createWindow() {
     var menu = electron_1.Menu.getApplicationMenu();
     mainWindow.setMenu(menu);
     mainWindow.loadFile(__dirname + "/index.html");
-    mainWindow.webContents.openDevTools();
     // Open the DevTools.
     // mainWindow.webContents.openDevTools()
     // Emitted when the window is closed.
