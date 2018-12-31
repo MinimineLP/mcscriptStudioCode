@@ -1,55 +1,69 @@
-declare class MenuActionAPI {listeners:any;on(key:string, func:Function);trigger(key:string);}
+declare class MenuActionAPI {
+  listeners: any;
+  on(key: string, func: Function);
+  trigger(key: string);
+}
 
-import {editor} from './scripts/editor';
-import { ServerApi , Plugin } from '@mcscriptstudiocode/pluginmanager';
+import { editor } from "./scripts/editor";
+import { ServerApi, Plugin } from "@mcscriptstudiocode/pluginmanager";
 
 export default class Explorer extends Plugin {
-
   server: ServerApi;
 
-  setup(server: ServerApi){
-
+  setup(server: ServerApi) {
     this.server = server;
 
-    server.addElement(`<div id="editorcontainer"><div id="editorfiles"><div id="editorfilescontainer"></div></div></div>`);
+    server.addElement(
+      `<div id="editorcontainer"><div id="editorfiles"><div id="editorfilescontainer"></div></div></div>`
+    );
 
-		require(`codemirror/lib/codemirror.js`);
+    require(`codemirror/lib/codemirror.js`);
 
-		require(`codemirror/addon/dialog/dialog.js`);
-		require(`codemirror/addon/search/searchcursor.js`);
-		require(`codemirror/addon/search/search.js`);
-		require(`codemirror/addon/scroll/annotatescrollbar.js`);
-		require(`codemirror/addon/search/matchesonscrollbar.js`);
-		require(`codemirror/addon/search/jump-to-line.js`);
-		require(`codemirror/addon/selection/active-line.js`);
-		require(`codemirror/addon/edit/matchbrackets.js`);
-		require(`codemirror/addon/display/fullscreen.js`);
-		require(`codemirror/addon/scroll/simplescrollbars.js`);
-		require(`codemirror/addon/edit/closetag.js`);
-		require(`codemirror/addon/fold/foldcode.js`);
-		require(`codemirror/addon/fold/foldgutter.js`);
-		require(`codemirror/addon/fold/brace-fold.js`);
-		require(`codemirror/addon/fold/xml-fold.js`);
-		require(`codemirror/addon/fold/indent-fold.js`);
-		require(`codemirror/addon/fold/markdown-fold.js`);
-		require(`codemirror/addon/fold/comment-fold.js`);
-		require(`codemirror/addon/selection/active-line.js`);
-		require(`codemirror/addon/mode/simple.js`);
-		require(`codemirror/addon/mode/overlay.js`);
+    require(`codemirror/addon/dialog/dialog.js`);
+    require(`codemirror/addon/search/searchcursor.js`);
+    require(`codemirror/addon/search/search.js`);
+    require(`codemirror/addon/scroll/annotatescrollbar.js`);
+    require(`codemirror/addon/search/matchesonscrollbar.js`);
+    require(`codemirror/addon/search/jump-to-line.js`);
+    require(`codemirror/addon/selection/active-line.js`);
+    require(`codemirror/addon/edit/matchbrackets.js`);
+    require(`codemirror/addon/display/fullscreen.js`);
+    require(`codemirror/addon/scroll/simplescrollbars.js`);
+    require(`codemirror/addon/edit/closetag.js`);
+    require(`codemirror/addon/fold/foldcode.js`);
+    require(`codemirror/addon/fold/foldgutter.js`);
+    require(`codemirror/addon/fold/brace-fold.js`);
+    require(`codemirror/addon/fold/xml-fold.js`);
+    require(`codemirror/addon/fold/indent-fold.js`);
+    require(`codemirror/addon/fold/markdown-fold.js`);
+    require(`codemirror/addon/fold/comment-fold.js`);
+    require(`codemirror/addon/selection/active-line.js`);
+    require(`codemirror/addon/mode/simple.js`);
+    require(`codemirror/addon/mode/overlay.js`);
 
     require(`codemirror/addon/hint/javascript-hint.js`);
     require(`codemirror/mode/javascript/javascript.js`);
 
-		require(`codemirror/mode/scheme/scheme.js`);
+    require(`codemirror/mode/scheme/scheme.js`);
 
-		server.addStylesheet(require.resolve(`codemirror/lib/codemirror.css`));
+    server.addStylesheet(require.resolve(`codemirror/lib/codemirror.css`));
 
-		server.addStylesheet(require.resolve(`codemirror/addon/hint/show-hint.css`));
-		server.addStylesheet(require.resolve(`codemirror/addon/dialog/dialog.css`));
-		server.addStylesheet(require.resolve(`codemirror/addon/search/matchesonscrollbar.css`));
-		server.addStylesheet(require.resolve(`codemirror/addon/display/fullscreen.css`));
-		server.addStylesheet(require.resolve(`codemirror/addon/scroll/simplescrollbars.css`));
-		server.addStylesheet(require.resolve(`codemirror/addon/fold/foldgutter.css`));
+    server.addStylesheet(
+      require.resolve(`codemirror/addon/hint/show-hint.css`)
+    );
+    server.addStylesheet(require.resolve(`codemirror/addon/dialog/dialog.css`));
+    server.addStylesheet(
+      require.resolve(`codemirror/addon/search/matchesonscrollbar.css`)
+    );
+    server.addStylesheet(
+      require.resolve(`codemirror/addon/display/fullscreen.css`)
+    );
+    server.addStylesheet(
+      require.resolve(`codemirror/addon/scroll/simplescrollbars.css`)
+    );
+    server.addStylesheet(
+      require.resolve(`codemirror/addon/fold/foldgutter.css`)
+    );
 
     server.addStylesheet(require.resolve(`codemirror/lib/codemirror.css`));
     server.addStylesheet(require.resolve(`codemirror/theme/3024-day.css`));
@@ -87,15 +101,21 @@ export default class Explorer extends Plugin {
     server.addStylesheet(require.resolve(`codemirror/theme/panda-syntax.css`));
     server.addStylesheet(require.resolve(`codemirror/theme/paraiso-dark.css`));
     server.addStylesheet(require.resolve(`codemirror/theme/paraiso-light.css`));
-    server.addStylesheet(require.resolve(`codemirror/theme/pastel-on-dark.css`));
+    server.addStylesheet(
+      require.resolve(`codemirror/theme/pastel-on-dark.css`)
+    );
     server.addStylesheet(require.resolve(`codemirror/theme/railscasts.css`));
     server.addStylesheet(require.resolve(`codemirror/theme/rubyblue.css`));
     server.addStylesheet(require.resolve(`codemirror/theme/seti.css`));
     server.addStylesheet(require.resolve(`codemirror/theme/shadowfox.css`));
     server.addStylesheet(require.resolve(`codemirror/theme/solarized.css`));
     server.addStylesheet(require.resolve(`codemirror/theme/the-matrix.css`));
-    server.addStylesheet(require.resolve(`codemirror/theme/tomorrow-night-bright.css`));
-    server.addStylesheet(require.resolve(`codemirror/theme/tomorrow-night-eighties.css`));
+    server.addStylesheet(
+      require.resolve(`codemirror/theme/tomorrow-night-bright.css`)
+    );
+    server.addStylesheet(
+      require.resolve(`codemirror/theme/tomorrow-night-eighties.css`)
+    );
     server.addStylesheet(require.resolve(`codemirror/theme/ttcn.css`));
     server.addStylesheet(require.resolve(`codemirror/theme/twilight.css`));
     server.addStylesheet(require.resolve(`codemirror/theme/vibrant-ink.css`));
@@ -119,16 +139,16 @@ export default class Explorer extends Plugin {
     require(`${__dirname}/scripts/MineEditor.js`);
     server.addStylesheet(`${__dirname}/css/editor.min.css`);
     server.addStylesheet(`${__dirname}/css/MineEditor.min.css`);
-    server.registerAPI("editor",editor);
+    server.registerAPI("editor", editor);
   }
 
-  start(server){
-    let menuactionapi:MenuActionAPI = server.getAPI("menu_action");
-    menuactionapi.on("file.save",editor.save);
+  start(server) {
+    let menuactionapi: MenuActionAPI = server.getAPI("menu_action");
+    menuactionapi.on("file.save", editor.save);
     this.server = server;
   }
 
-  stop(server){
+  stop(server) {
     this.server = server;
   }
 

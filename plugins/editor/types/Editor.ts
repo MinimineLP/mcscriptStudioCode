@@ -1,27 +1,30 @@
 declare class Highlights {
-  mcscript:string;
-  mcfunction:string;
-  mcmeta:string;
-  json:string;
-  md:string;
-  js:string;
-  html:string;
-  yml:string;
+  mcscript: string;
+  mcfunction: string;
+  mcmeta: string;
+  json: string;
+  md: string;
+  js: string;
+  html: string;
+  yml: string;
 }
 
 declare class Editor {
+  highlights: Highlights;
 
-  highlights:Highlights;
+  actual: string;
 
-  actual:string;
+  opened: any;
 
-  opened:any;
-
-  texteditors:any[];
+  texteditors: any[];
 
   constructor();
 
-  createEditor(element:HTMLTextAreaElement|HTMLDivElement, mode?:string, theme?:string);
+  createEditor(
+    element: HTMLTextAreaElement | HTMLDivElement,
+    mode?: string,
+    theme?: string
+  );
 
   getMode(ending);
 
@@ -34,20 +37,20 @@ declare class Editor {
   closeActual(): void;
 
   open(path);
-};
-declare function createEditor(mode,value):EditorCreateAnswer;
+}
+declare function createEditor(mode, value): EditorCreateAnswer;
 
 declare interface EditorCreateAnswer {
   editor: any;
   id: string;
   div: HTMLDivElement;
   content: string;
-  type: "code"|"text";
+  type: "code" | "text";
 }
 
 declare let editor;
 
 export default editor;
-export {editor,Editor,createEditor};
-module.exports = {editor:editor,Editor:Editor,createEditor:createEditor}
+export { editor, Editor, createEditor };
+module.exports = { editor: editor, Editor: Editor, createEditor: createEditor };
 module.exports.default = editor;

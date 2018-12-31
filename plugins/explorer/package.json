@@ -21,7 +21,6 @@
   },
   "homepage": "https://github.com/MinimineLP/MCScriptStudioCode#readme",
   "dependencies": {
-    "@types/sweetalert": "^2.0.4",
     "jquery": "^3.3.1",
     "sweetalert": "^2.1.2"
   },

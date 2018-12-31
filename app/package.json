@@ -12,7 +12,6 @@
   "license": "MIT",
   "devDependencies": {
     "@types/js-yaml": "^3.11.2",
-    "@types/npm": "^2.0.29",
     "electron": "^3.0.7"
   },
   "dependencies": {

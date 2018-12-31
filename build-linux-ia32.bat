@@ -21,5 +21,5 @@ cmd /c "C:\Program Files\7-Zip\7z.exe" u %cd%.tar *>nul
 cmd /c "C:\Program Files\7-Zip\7z.exe" u %cd%-portable.tar.gz %cd%.tar>nul
 del %cd%.tar>nul
 
-cd ..\..\..\..\..
+cd ..\..\..\..
 echo finished building linux-ia32

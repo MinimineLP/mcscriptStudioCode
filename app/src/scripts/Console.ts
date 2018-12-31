@@ -9,13 +9,13 @@ function getDate() {
 }
 
 console.log = function(tolog) {
-  consolelog(`[${getDate()}][MCScriptStudioCode][Logging] `,tolog);
-}
+  consolelog(`[${getDate()}][MCScriptStudioCode][Logging] `, tolog);
+};
 
 console.error = function(tolog) {
-  consoleerr(`[${getDate()}][MCScriptStudioCode][Error] `,tolog);
-}
+  consoleerr(`[${getDate()}][MCScriptStudioCode][Error] `, tolog);
+};
 
 console.debug = function(tolog) {
-  consoledebug(`[${getDate()}][MCScriptStudioCode][Debug] `,tolog);
-}
+  consoledebug(`[${getDate()}][MCScriptStudioCode][Debug] `, tolog);
+};

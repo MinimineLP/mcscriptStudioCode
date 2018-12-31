@@ -21,7 +21,7 @@ cmd /c "C:\Program Files\7-Zip\7z.exe" u %cd%.tar *>nul
 cmd /c "C:\Program Files\7-Zip\7z.exe" u %cd%-portable.tar.gz %cd%.tar>nul
 del %cd%.tar>nul
 
-cd ..\..\..\..\..
+cd ..\..\..\..
 
 echo building win32-x64 installer
 cmd /c node win32-x64.js

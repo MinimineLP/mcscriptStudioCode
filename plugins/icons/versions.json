@@ -1,0 +1,10 @@
+{
+  "name": "Contextmenu",
+  "url": "https://github.com/MinimineLP/mcscriptStudioCode/tree/master/plugins/icons/readme.md",
+  "author": "Minimine",
+  "author-url": "https://github.com/miniminelp/",
+  "newestversion": "0.0.1",
+  "versions": {
+	   "0.0.1": "https://raw.githubusercontent.com/MinimineLP/mcscriptStudioCode/master/plugins/icons/versions/0.0.1.zip"
+  }
+}

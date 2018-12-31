@@ -7,7 +7,7 @@
  *
  */
 
-import * as fs from 'fs';
+import * as fs from "fs";
 
 /**
  * @class PluginManager
@@ -21,8 +21,7 @@ import * as fs from 'fs';
  *
  */
 declare class PluginManager {
-
-  static instance:PluginManager;
+  static instance: PluginManager;
 
   /**
    * @var plugins
@@ -74,7 +73,7 @@ declare class PluginManager {
    * @description makes the plugins ready
    *
    */
-  readyPluginDir(plugindir:string): void;
+  readyPluginDir(plugindir: string): void;
 
   /**
    * @function readyPlugin
@@ -87,7 +86,7 @@ declare class PluginManager {
    * @description makes a plugin ready
    *
    */
-  readyPlugin(plugindir:string,plugin:string);
+  readyPlugin(plugindir: string, plugin: string);
 
   /**
    * @function readyPluginDir
@@ -100,7 +99,7 @@ declare class PluginManager {
    * @description Loads the plugins
    *
    */
-  readyPluginDir(plugindir:string): void;
+  readyPluginDir(plugindir: string): void;
 
   /**
    * @function loadPlugins
@@ -113,7 +112,7 @@ declare class PluginManager {
    * @description Loads the plugins
    *
    */
-  loadPlugins(plugindir:string): void;
+  loadPlugins(plugindir: string): void;
 
   /**
    * @function loadPlugin
@@ -128,7 +127,7 @@ declare class PluginManager {
    * @return the plugin main file default class
    *
    */
-  loadPlugin(plugindir:string,plugin:string): Plugin;
+  loadPlugin(plugindir: string, plugin: string): Plugin;
 
   /**
    * @function setupPlugins
@@ -195,7 +194,7 @@ declare class PluginManager {
    * @return the package.json content
    *
    */
-  getPluginDescription(plugindir:string,plugin:string): any;
+  getPluginDescription(plugindir: string, plugin: string): any;
 
   /**
    * @function getPlugins
@@ -222,7 +221,7 @@ declare class PluginManager {
    *
    * @param event the Event to fire
    */
-  fireEvent(event:Event):Event;
+  fireEvent(event: Event): Event;
 
   /**
    * @function installPlugin
@@ -236,12 +235,8 @@ declare class PluginManager {
    * @param url the url
    * @param pluginfolder the pluginfoder
    */
-  installPlugin(url:string, pluginfolder:string);
+  installPlugin(url: string, pluginfolder: string);
 }
-
-
-
-
 
 /**
  * @class ServerApi
@@ -255,7 +250,6 @@ declare class PluginManager {
  *
  */
 declare class ServerApi {
-
   /**
    * @var listeners
    * @author Minimine <https://github.com/miniminelp>
@@ -267,7 +261,7 @@ declare class ServerApi {
    * @description contains the listeners
    *
    */
-  listeners:Array<Listener>;
+  listeners: Array<Listener>;
 
   /**
    * @var apis
@@ -318,7 +312,7 @@ declare class ServerApi {
    *
    * @description Constructorclass for the ServerApi
    */
-  constructor(manager:PluginManager);
+  constructor(manager: PluginManager);
 
   /**
    * @function on
@@ -333,7 +327,7 @@ declare class ServerApi {
    * @param event the event to listen for
    * @param func the function to execute when event appears
    */
-  on(event:string, func:Function);
+  on(event: string, func: Function);
 
   /**
    * @function registerListener
@@ -346,7 +340,7 @@ declare class ServerApi {
    * @description register a listener
    * @param listener the listener to register
    */
-  registerListener(listener:Listener);
+  registerListener(listener: Listener);
 
   /**
    * @function fireEvent
@@ -360,8 +354,7 @@ declare class ServerApi {
    * @param event the Event to fire
    *
    */
-  fireEvent(event:Event):Event;
-
+  fireEvent(event: Event): Event;
 
   /**
    * @function addStylesheet
@@ -375,8 +368,7 @@ declare class ServerApi {
    * @param stylesheet the script path
    *
    */
-  addStylesheet(stylesheet:string);
-
+  addStylesheet(stylesheet: string);
 
   /**
    * @function addScript
@@ -391,8 +383,7 @@ declare class ServerApi {
    * @param script the element's path
    *
    */
-  addScript(script:string);
-
+  addScript(script: string);
 
   /**
    * @function addElement
@@ -406,7 +397,7 @@ declare class ServerApi {
    * @param element the element to add
    *
    */
-  addElement(element:string|HTMLElement);
+  addElement(element: string | HTMLElement);
 
   /**
    * @function registerAPI
@@ -420,7 +411,7 @@ declare class ServerApi {
    * @param key the api key
    * @param api the api
    */
-  registerAPI(key:string, api:any):void;
+  registerAPI(key: string, api: any): void;
 
   /**
    * @function getAPI
@@ -434,11 +425,8 @@ declare class ServerApi {
    * @param key the api key
    * @return the api
    */
-  getAPI(key:string):any;
+  getAPI(key: string): any;
 }
-
-
-
 
 /**
  * @class Plugin
@@ -453,7 +441,6 @@ declare class ServerApi {
  *
  */
 declare abstract class Plugin {
-
   /**
    * @var name
    * @author Minimine <https://github.com/miniminelp>
@@ -465,7 +452,7 @@ declare abstract class Plugin {
    * @description the plugin's name
    *
    */
-  name:string;
+  name: string;
 
   /**
    * @var url
@@ -478,7 +465,7 @@ declare abstract class Plugin {
    * @description the plugin's url
    *
    */
-  url:string;
+  url: string;
 
   /**
    * @var author
@@ -491,7 +478,7 @@ declare abstract class Plugin {
    * @description the plugin's author(s)
    *
    */
-  author:string|string[];
+  author: string | string[];
 
   /**
    * @var author_url
@@ -504,7 +491,7 @@ declare abstract class Plugin {
    * @description the plugin authors's url(s)
    *
    */
-  author_url:string|string[];
+  author_url: string | string[];
 
   /**
    * @var version
@@ -517,7 +504,7 @@ declare abstract class Plugin {
    * @description the plugin's version
    *
    */
-  version:string;
+  version: string;
 
   /**
    * @var main
@@ -530,7 +517,7 @@ declare abstract class Plugin {
    * @description the plugin's main file
    *
    */
-  main:string;
+  main: string;
 
   /**
    * @var dependencies
@@ -575,7 +562,16 @@ declare abstract class Plugin {
    * @param main the plugin's main file
    *
    */
-  constructor(name:string, url:string, author:string|string[], author_url:string|string[], version:string, main:string, dependencies:Dependency[], path:string);
+  constructor(
+    name: string,
+    url: string,
+    author: string | string[],
+    author_url: string | string[],
+    version: string,
+    main: string,
+    dependencies: Dependency[],
+    path: string
+  );
 
   /**
    * @function setup
@@ -590,7 +586,7 @@ declare abstract class Plugin {
    * @abstract
    *
    */
-  abstract setup(server:ServerApi);
+  abstract setup(server: ServerApi);
 
   /**
    * @function start
@@ -605,7 +601,7 @@ declare abstract class Plugin {
    * @abstract
    *
    */
-  abstract start(server:ServerApi);
+  abstract start(server: ServerApi);
 
   /**
    * @function register
@@ -620,7 +616,7 @@ declare abstract class Plugin {
    * @abstract
    *
    */
-  abstract stop(server:ServerApi);
+  abstract stop(server: ServerApi);
 
   /**
    * @function register
@@ -635,11 +631,8 @@ declare abstract class Plugin {
    * @abstract
    *
    */
-  abstract reload(server:ServerApi);
+  abstract reload(server: ServerApi);
 }
-
-
-
 
 /**
  * @class Dependency
@@ -654,6 +647,18 @@ declare abstract class Plugin {
  *
  */
 declare class Dependency {
+  /**
+   * @var name
+   * @author Minimine <https://github.com/miniminelp>
+   * @since 0.0.3
+   * @version 0.0.3
+   * @license MIT
+   * @copyright (c) Minimine 2018
+   *
+   * @description the dependencies name
+   *
+   */
+  name: string;
 
   /**
    * @var name
@@ -666,20 +671,7 @@ declare class Dependency {
    * @description the dependencies name
    *
    */
-  name:string;
-
-  /**
-   * @var name
-   * @author Minimine <https://github.com/miniminelp>
-   * @since 0.0.3
-   * @version 0.0.3
-   * @license MIT
-   * @copyright (c) Minimine 2018
-   *
-   * @description the dependencies name
-   *
-   */
-  url:string;
+  url: string;
 
   /**
    * @var plugin
@@ -692,7 +684,7 @@ declare class Dependency {
    * @description the plugin
    *
    */
-  plugin:Plugin;
+  plugin: Plugin;
 
   /**
    * @function constructor
@@ -707,18 +699,8 @@ declare class Dependency {
    * @param url the plugin's url
    *
    */
-  constructor(name:string, url:string, plugindir:string, requiredBy:string);
+  constructor(name: string, url: string, plugindir: string, requiredBy: string);
 }
-
-
-
-
-
-
-
-
-
-
 
 /*
  **********************************************************************************************************************************
@@ -728,23 +710,18 @@ declare class Dependency {
  **********************************************************************************************************************************
  */
 
-
-
-
-
- /**
-  * @interface Event
-  * @author Minimine <https://github.com/miniminelp>
-  * @since 0.0.2
-  * @version 0.0.2
-  * @license MIT
-  * @copyright (c) Minimine 2018
-  *
-  * @description Event interface
-  *
-  */
+/**
+ * @interface Event
+ * @author Minimine <https://github.com/miniminelp>
+ * @since 0.0.2
+ * @version 0.0.2
+ * @license MIT
+ * @copyright (c) Minimine 2018
+ *
+ * @description Event interface
+ *
+ */
 declare interface Event {
-
   /**
    * @function getType
    * @author Minimine <https://github.com/miniminelp>
@@ -756,12 +733,8 @@ declare interface Event {
    * @description Returns the event's type
    *
    */
-  getType():string;
+  getType(): string;
 }
-
-
-
-
 
 /**
  * @interface CancelableEvent
@@ -776,7 +749,6 @@ declare interface Event {
  *
  */
 declare interface CancelableEvent extends Event {
-
   /**
    * @var canceled
    * @author Minimine <https://github.com/miniminelp>
@@ -804,15 +776,6 @@ declare interface CancelableEvent extends Event {
   cancel();
 }
 
-
-
-
-
-
-
-
-
-
 /*
  **********************************************************************************************************************************
  **********************************************************************************************************************************
@@ -821,21 +784,17 @@ declare interface CancelableEvent extends Event {
  **********************************************************************************************************************************
  */
 
-
-
-
- /**
-  * @interface Listener
-  * @author Minimine <https://github.com/miniminelp>
-  * @since 0.0.2
-  * @version 0.0.2
-  * @license MIT
-  * @copyright (c) Minimine 2018
-  *
-  * @description The Listener inteface.
-  */
+/**
+ * @interface Listener
+ * @author Minimine <https://github.com/miniminelp>
+ * @since 0.0.2
+ * @version 0.0.2
+ * @license MIT
+ * @copyright (c) Minimine 2018
+ *
+ * @description The Listener inteface.
+ */
 declare interface Listener {
-
   /**
    * @function getType
    * @author Minimine <https://github.com/miniminelp>
@@ -848,7 +807,7 @@ declare interface Listener {
    * @return the type
    *
    */
-  getType():string;
+  getType(): string;
 
   /**
    * @function run
@@ -862,11 +821,8 @@ declare interface Listener {
    * @param event the Event
    *
    */
-  run(event:Event):void;
+  run(event: Event): void;
 }
-
-
-
 
 /**
  * @class OnListener
@@ -882,7 +838,6 @@ declare interface Listener {
  *
  */
 declare class OnListener implements Listener {
-
   /**
    * @var trigger
    * @author Minimine <https://github.com/miniminelp>
@@ -894,7 +849,7 @@ declare class OnListener implements Listener {
    * @description the trigger event
    *
    */
-  trigger:string;
+  trigger: string;
 
   /**
    * @var func
@@ -907,7 +862,7 @@ declare class OnListener implements Listener {
    * @description Executed when event apears
    *
    */
-  func:Function;
+  func: Function;
 
   /**
    * @function constructor
@@ -922,7 +877,7 @@ declare class OnListener implements Listener {
    * @param func the Function to execute when the event apears
    *
    */
-  constructor(trigger:string, func:Function);
+  constructor(trigger: string, func: Function);
 
   /**
    * @see Listener#run
@@ -956,15 +911,6 @@ declare class OnListener implements Listener {
   getType(): string;
 }
 
-
-
-
-
-
-
-
-
-
 /*
  **********************************************************************************************************************************
  **********************************************************************************************************************************
@@ -972,9 +918,6 @@ declare class OnListener implements Listener {
  **********************************************************************************************************************************
  **********************************************************************************************************************************
  */
-
-
-
 
 /**
  * @function guid
@@ -990,9 +933,6 @@ declare class OnListener implements Listener {
  */
 declare function guid();
 
-
-
-
 /**
  * @function copyFileSync
  * @author Minimine <https://github.com/miniminelp>
@@ -1006,10 +946,7 @@ declare function guid();
  * @param target the paste target
  *
  */
-declare function copyFileSync( source, target );
-
-
-
+declare function copyFileSync(source, target);
 
 /**
  * @function copyFolderRecursiveSync
@@ -1025,10 +962,11 @@ declare function copyFileSync( source, target );
  * @param useOldName should a sub folder created with the old name? default: true
  *
  */
-declare function copyFolderRecursiveSync( source: string, target: string, useOldName?:boolean );
-
-
-
+declare function copyFolderRecursiveSync(
+  source: string,
+  target: string,
+  useOldName?: boolean
+);
 
 /**
  * @function deleteFolderRecursive
@@ -1042,17 +980,7 @@ declare function copyFolderRecursiveSync( source: string, target: string, useOld
  * @param path the folder to delete
  *
  */
-declare function deleteFolderRecursive (path: fs.PathLike);
-
-
-
-
-
-
-
-
-
-
+declare function deleteFolderRecursive(path: fs.PathLike);
 
 /*
  **********************************************************************************************************************************
@@ -1062,16 +990,7 @@ declare function deleteFolderRecursive (path: fs.PathLike);
  **********************************************************************************************************************************
  */
 
-
-
-
-
-
-
-
-
-
- /*
+/*
   **********************************************************************************************************************************
   **********************************************************************************************************************************
   Exports
@@ -1083,29 +1002,37 @@ export default PluginManager;
 
 export {
   // Standart APIs
-  Plugin, ServerApi, PluginManager,
-
+  Plugin,
+  ServerApi,
+  PluginManager,
   // Events
-  Event, CancelableEvent,
-
+  Event,
+  CancelableEvent,
   // Listeners
-  Listener, OnListener,
-
+  Listener,
+  OnListener,
   // Functions
-  guid, deleteFolderRecursive, copyFolderRecursiveSync, copyFileSync,
+  guid,
+  deleteFolderRecursive,
+  copyFolderRecursiveSync,
+  copyFileSync
 };
-
 
 module.exports = {
   // Standart APIs
-  Plugin:Plugin, ServerApi:ServerApi, PluginManager:PluginManager,
+  Plugin: Plugin,
+  ServerApi: ServerApi,
+  PluginManager: PluginManager,
 
   // Events
-  Event:Event,
+  Event: Event,
 
   // Listeners
-  OnListener:OnListener,
+  OnListener: OnListener,
 
   // Functions
-  guid:guid, deleteFolderRecursive:deleteFolderRecursive, copyFolderRecursiveSync:copyFolderRecursiveSync, copyFileSync:copyFileSync,
-}
+  guid: guid,
+  deleteFolderRecursive: deleteFolderRecursive,
+  copyFolderRecursiveSync: copyFolderRecursiveSync,
+  copyFileSync: copyFileSync
+};
