@@ -10,4 +10,4 @@ builds
 PULL_REQUEST_TEMPLATE.md
 *.js
 !gulpfile.js
-plugins
+#plugins
