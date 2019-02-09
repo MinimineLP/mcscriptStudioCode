@@ -1,0 +1,77 @@
+$background: #262626
+$background_hover: #505050
+$background_active: #00d1ff
+$text-color: #fff
+
+div#explorer
+  overflow: hidden
+  width: 300px
+  height: calc(100% - 32px)
+  background-color: $background
+  font-size: 12px
+  color: $text-color
+  -moz-user-select: -moz-none
+  -khtml-user-select: none
+  -webkit-user-select: none
+  -ms-user-select: none
+  user-select: none
+  position: absolute
+  top: 32px
+
+  & h3
+    font-size: 16px
+    text-align: center
+    margin: 0px
+    padding: 10px
+
+  & ul
+    overflow-x: hidden
+    overflow-y: auto
+    margin: 0px
+    padding: 0px
+    padding-left: 14px
+    background-color: $background
+
+    &#explorerlist
+      padding-left: 0px
+
+    & li
+      list-style: none
+      background-color: $background
+      cursor: pointer
+
+      &.hover
+        background-color: $background-hover
+
+      &.active
+        background-color: $background-active
+      &:has(i.hover)
+        background-color: $background-hover
+      &:has(p.hover)
+        background-color: $background-hover
+      &:has(i.active)
+        background-color: $background-active
+      &:has(p.active)
+        background-color: $background-active
+
+      &.dir
+        padding-left: 0px
+
+      &.file
+        padding-left: 12px
+      & ul
+        padding-left: 14px
+
+      & img
+        width: 12px
+        height: 12px
+
+      & p
+        margin: 0px
+        position: relative
+        top: -2px
+        display: inline
+
+      & i
+        cursor: pointer
+        font-size: 12px

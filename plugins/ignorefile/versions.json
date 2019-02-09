@@ -1,10 +1,10 @@
 {
-  "name": "Ignorefile",
-  "url": "https://github.com/MinimineLP/mcscriptStudioCode/tree/master/plugins/ignorefile/readme.md",
+  "name": "ignorefile",
+  "url": "https://raw.githubusercontent.com/MinimineLP/mcscriptStudioCode/master/plugins/ignorefile/",
   "author": "Minimine",
   "author-url": "https://github.com/miniminelp/",
   "newestversion": "0.0.1",
   "versions": {
-	   "0.0.1": "https://raw.githubusercontent.com/MinimineLP/mcscriptStudioCode/master/plugins/ignorefile/versions/0.0.1.zip"
+    "0.0.1": "https://raw.githubusercontent.com/MinimineLP/mcscriptStudioCode/master/plugins/ignorefile/builds/0.0.1.zip"
   }
 }

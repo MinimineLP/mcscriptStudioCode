@@ -1,13 +1,14 @@
 import { settingsapi } from "./SettingsAPI";
 import {
   PluginManager,
-  ServerApi,
-  Plugin,
-  guid
+  PluginApi,
+  Plugin
 } from "@mcscriptstudiocode/pluginmanager";
+import { guid } from "@mcscriptstudiocode/util";
 import * as $ from "jquery";
 import * as fs from "fs";
-let api: ServerApi = PluginManager.instance.api;
+import * as marked from "marked";
+let api: PluginApi = PluginManager.instance.api;
 
 settingsapi.push({
   name: "plugins",
@@ -49,6 +50,7 @@ settingsapi.push({
       let configid = guid();
       let configSaveId = guid();
       let config = createConfigEditor(plugin, configid, configSaveId);
+      let readme = createReadmeViewer(plugin);
 
       $(li).click(() => {
         $(ul).hide();
@@ -57,8 +59,8 @@ settingsapi.push({
         $(cont).append(infos);
         if (config) {
           $(cont).append(config);
-          let editor = api
-            .getAPI("editor")
+          let editor = (<any>(api
+            .getAPI("editor")))
             .createEditor(
               document.getElementById(configid),
               "text/x-yaml",
@@ -74,6 +76,7 @@ settingsapi.push({
             return false;
           });
         }
+        if (readme) $(cont).append(readme);
       });
       ul.appendChild(li);
     });
@@ -119,5 +122,24 @@ function createConfigEditor(
   div.appendChild(config);
   div.appendChild(save);
 
+  return div;
+}
+
+function createReadmeViewer(plugin: Plugin): HTMLDivElement {
+  if (!fs.existsSync(`${plugin.path}/README.md`)) return;
+  let content = fs.readFileSync(`${plugin.path}/README.md`, "utf8");
+  let html = marked(content);
+
+  let div: HTMLDivElement = document.createElement("div");
+  let cont: HTMLDivElement = document.createElement("div");
+  let h3: HTMLElement = document.createElement("h3");
+
+  div.classList.add("readme");
+  cont.classList.add("readme-content");
+
+  h3.innerText = "Readme";
+  cont.innerHTML = html;
+
+  div.appendChild(cont);
   return div;
 }

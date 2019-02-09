@@ -6,7 +6,7 @@ MCScriptStudioCode is an editor for [mcscript](https://github.com/stevertus/mcsc
 Select the version that works best for you, and download it in the "Downloads" section below.
 
 ## License
-MIT license, see [here](license)
+MIT license, see [here](https://github.com/MinimineLP/mcscriptStudioCode/blob/master/LICENSE)
 
 ## Authors
 

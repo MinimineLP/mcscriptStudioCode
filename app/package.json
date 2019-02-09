@@ -12,7 +12,8 @@
   "license": "MIT",
   "devDependencies": {
     "@types/js-yaml": "^3.11.2",
-    "electron": "^3.0.7"
+    "electron": "^3.0.7",
+    "zip-folder": "^1.0.0"
   },
   "dependencies": {
     "extract-zip": "^1.6.7",

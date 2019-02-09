@@ -2,6 +2,8 @@ import * as http from "http";
 import * as https from "https";
 import * as fs from "fs";
 
+declare let global: any;
+
 export async function loadSite(
   host: string | any,
   then: Function,
@@ -78,23 +80,39 @@ export function parseURL(url: string) {
   return { host: host, path: path, protocoll: protocoll };
 }
 
-export function downloadFile(
-  out: string,
-  url: string,
-  then: (fd: number) => void = function() {}
-) {
-  let file = fs.createWriteStream(out);
-  let request:http.ClientRequest;
-  if (url.startsWith("https")) {
-    console.log(url, out, "https")
-    request = https.get(url, function(response) {
-      response.pipe(file);
-    });
-  }
-  else
-    request = http.get(url, function(response) {
-      response.pipe(file);
-    });
-  file.on("finish", then);
-  request.end();
+export function downloadFile(out: string, url: string): Promise<number> {
+  return new Promise((resolve, reject) => {
+    let file = fs.createWriteStream(out);
+    let request: http.ClientRequest;
+    if (url.startsWith("https")) {
+      console.log(url, out, "https");
+      request = https.get(url, function(response) {
+        response.pipe(file);
+      });
+    } else
+      request = http.get(url, function(response) {
+        response.pipe(file);
+      });
+    file.on("finish", resolve).on("error", reject);
+    request.end();
+  });
 }
+
+export let SiteApi: {
+  loadSite: (
+    host: string | any,
+    then: Function,
+    path?: string,
+    protocoll?: string
+  ) => Promise<any>;
+  parseURL: (
+    url: string
+  ) => { host: string | any; path: string; protocoll: "http" | "https" };
+  downloadFile: (out: string, url: string) => Promise<number>;
+} = {
+  loadSite: loadSite,
+  parseURL: parseURL,
+  downloadFile: downloadFile
+};
+
+global.SiteApi = SiteApi;

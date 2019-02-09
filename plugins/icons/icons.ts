@@ -1,28 +1,18 @@
-import { ServerApi, Plugin } from "@mcscriptstudiocode/pluginmanager";
+import { Plugin } from "@mcscriptstudiocode/pluginmanager";
 
 export default class Explorer extends Plugin {
-  server: ServerApi;
-
-  setup(server) {
-    this.server = server;
-
-    server.addStylesheet(
+  setup() {
+    this.api.addStylesheet(
       require.resolve("@mdi/font/css/materialdesignicons.min.css")
     );
-    server.addStylesheet(
+    this.api.addStylesheet(
       require.resolve("material-icons/iconfont/material-icons.css")
     );
   }
 
-  start(server) {
-    this.server = server;
-  }
+  start() {}
 
-  stop(server) {
-    this.server = server;
-  }
+  stop() {}
 
-  reload(server) {
-    this.server = server;
-  }
+  reload() {}
 }

@@ -1,12 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["es6","DOM","es7"]
+    "lib": ["es2015","es6","DOM","es7"]
   },
   "files": [
-    "editor.ts",
-    "scripts/editor.ts",
-    "scripts/MineEditor.ts",
-    "scripts/language-mcfunction.ts",
-    "scripts/language-mcscript.ts"
+    "*.ts",
+    "types/*.ts",
+    "scripts/*.ts"
   ]
 }

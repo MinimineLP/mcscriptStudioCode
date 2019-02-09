@@ -1,10 +1,10 @@
 {
-  "name": "Shortcutbar",
-  "url": "https://github.com/MinimineLP/mcscriptStudioCode/tree/master/plugins/shortcutbar/readme.md",
+  "name": "Explorer",
+  "url": "https://raw.githubusercontent.com/MinimineLP/mcscriptStudioCode/master/plugins/shortcutbar/",
   "author": "Minimine",
   "author-url": "https://github.com/miniminelp/",
   "newestversion": "0.0.1",
   "versions": {
-	   "0.0.1": "https://raw.githubusercontent.com/MinimineLP/mcscriptStudioCode/master/plugins/shortcutbar/versions/0.0.1.zip"
+    "0.0.1": "https://raw.githubusercontent.com/MinimineLP/mcscriptStudioCode/master/plugins/shortcutbar/builds/0.0.1.zip"
   }
 }

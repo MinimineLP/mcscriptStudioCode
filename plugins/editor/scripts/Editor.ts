@@ -1,6 +1,7 @@
 declare function reloadEditors(): void;
 
-import { guid } from "@mcscriptstudiocode/pluginmanager";
+import { guid } from "@mcscriptstudiocode/util";
+import { Api } from "@mcscriptstudiocode/pluginmanager";
 import * as swal from "sweetalert";
 import * as $ from "jquery";
 import * as fs from "fs";
@@ -18,13 +19,13 @@ class Highlights {
   yml: string = "text/x-yaml";
 }
 
-class Editor {
+class Editor implements Api {
+
+  name:string = "Editor";
+  version:string = "0.0.1";
   highlights: Highlights = new Highlights();
-
   actual: string = undefined;
-
   opened: any = {};
-
   texteditors: any[] = [];
 
   constructor() {
@@ -115,7 +116,11 @@ class Editor {
   save() {
     if (editor.actual) editor.opened[editor.actual].save();
     // @ts-ignore
-    else swal("Nothing to save!",`Sorry, but there is nothing to save, please select a file!`,"error");
+    else swal(
+        "Nothing to save!",
+        `Sorry, but there is nothing to save, please select a file!`,
+        "error"
+      );
   }
 
   undo() {
@@ -129,7 +134,11 @@ class Editor {
   closeActual(): void {
     if (editor.actual) editor.opened[editor.actual].close();
     // @ts-ignore
-    else swal("Nothing to close!",`Sorry, but there is nothing to close!`,"error");
+    else swal(
+        "Nothing to close!",
+        `Sorry, but there is nothing to close!`,
+        "error"
+      );
   }
 
   open(path) {
@@ -158,12 +167,6 @@ class Editor {
         fs.writeFileSync(path, edit.getDoc().getValue());
         editor.opened[path].content = edit.getDoc().getValue();
         frame.removeClass("edited");
-        // @ts-ignore
-        swal(
-          "Successfully saved!",
-          `File successfully saved to "${path}"`,
-          "success"
-        );
       } else if (type == "text") {
         fs.writeFileSync(path, $(`#${editor.opened[path].id}`).val());
         editor.opened[path].content = $(`#${editor.opened[path].id}`).val();

@@ -1,6 +1,6 @@
 {
   "name": "Editor",
-  "url": "https://github.com/miniminelp/mcscriptStudioCode",
+  "url": "https://github.com/MinimineLP/mcscriptStudioCode/blob/master/plugins/editor/readme.md",
   "author": "Minimine",
   "author-url": "https://github.com/miniminelp/",
   "version": "0.0.1",
@@ -13,7 +13,7 @@
   "bugs": {
     "url": "https://github.com/MinimineLP/MCScriptStudioCode/issues"
   },
-  "homepage": "https://github.com/MinimineLP/MCScriptStudioCode#readme",
+  "homepage": "https://github.com/MinimineLP/mcscriptStudioCode/blob/master/plugins/editor/readme.md",
   "dependencies": {
     "codemirror": "^5.40.2",
     "jquery": "^3.3.1",

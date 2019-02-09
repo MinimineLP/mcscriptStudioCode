@@ -1,26 +1,23 @@
 import { ShortcutbarAPI } from "@mcscriptstudiocodeplugins/shortcutbar";
 import { settingsapi, SettingsAPI } from "./scripts/SettingsAPI";
-import { ServerApi, Plugin } from "@mcscriptstudiocode/pluginmanager";
+import { Plugin } from "@mcscriptstudiocode/pluginmanager";
 
 declare let global: any;
 
 export let instance: Settings;
 export default class Settings extends Plugin {
-  server: ServerApi;
-
-  setup(server: ServerApi) {
+  setup() {
     instance = this;
-    this.server = server;
-    server.addElement(
+    this.api.addElement(
       `<div id="settings" style="display:none"><h3>Settings</h3></div>`
     );
-    server.addStylesheet(`${__dirname}/css/settings.min.css`);
-    server.registerAPI("settings", settingsapi);
+    this.api.addStylesheet(`${__dirname}/style/css/global.min.css`);
+    this.api.registerAPI("settings", settingsapi);
     settingsapi.loadFrame();
   }
 
-  start(server: ServerApi) {
-    let api: ShortcutbarAPI = server.getAPI("shortcutbar");
+  start() {
+    let api: ShortcutbarAPI = this.api.getAPI("shortcutbar");
     api.addButton(
       "open_settings",
       "open settings",
@@ -29,16 +26,11 @@ export default class Settings extends Plugin {
         settingsapi.show();
       }
     );
-    this.server = server;
   }
 
-  stop(server: ServerApi) {
-    this.server = server;
-  }
+  stop() {}
 
-  reload(server: ServerApi) {
-    this.server = server;
-  }
+  reload() {}
 }
 
 global.settingsapi = settingsapi;

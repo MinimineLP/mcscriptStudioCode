@@ -1,0 +1,7 @@
+node_modules
+*.min.*
+*.map
+node_modules
+package-lock.json
+*.js
+!gulpfile.js

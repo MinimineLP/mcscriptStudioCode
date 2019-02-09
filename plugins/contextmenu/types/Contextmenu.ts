@@ -1,4 +1,4 @@
-import {ServerApi} from "@mcscriptstudiocode/pluginmanager"
+import {PluginApi} from "@mcscriptstudiocode/pluginmanager"
 
 declare class ContextMenuPointBuildingOptions {
   name:string;
@@ -26,9 +26,9 @@ declare class ContextMenu {
 
 declare class ContextMenuAPI {
   id:string;
-  server: ServerApi;
+  server: PluginApi;
   standartmenu:ContextMenu;
-  constructor(server:ServerApi);
+  constructor(server:PluginApi);
   show(menu:ContextMenu);
   hide();
 }

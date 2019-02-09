@@ -1,4 +1,4 @@
-import { ServerApi, Plugin } from "@mcscriptstudiocode/pluginmanager";
+import { PluginApi, Api, Plugin } from "@mcscriptstudiocode/pluginmanager";
 import { Editor } from "@mcscriptstudiocodeplugins/editor";
 import {
   ContextMenuAPI,
@@ -6,11 +6,14 @@ import {
   ContextMenu
 } from "@mcscriptstudiocodeplugins/contextmenu";
 
-declare class MenuActionAPI {
+declare class MenuActionAPI implements Api {
+  name: string;
+  version: string;
   listeners: any;
   on(key: string, func: Function);
   trigger(key: string);
 }
+
 declare let working_dir: string;
 declare let global: any;
 
@@ -25,19 +28,15 @@ let dir = working_dir.replace(/\\/g, "/") + "/";
 let rle: Function;
 
 export default class Explorer extends Plugin {
-  server: ServerApi;
-
-  setup(server) {
-    this.server = server;
-    server.addElement(`<div id="explorer"><h3>Project Explorer</h3></div>`);
-    server.addStylesheet(`${__dirname}/css/explorer.css`);
-    server.registerAPI("explorer", new ExplorerAPI());
+  setup() {
+    this.api.addElement(`<div id="explorer"><h3>Project Explorer</h3></div>`);
+    this.api.addStylesheet(`${__dirname}/style/css/global.min.css`);
+    this.api.registerAPI("explorer", new ExplorerAPI());
   }
 
-  start(server) {
-    editor = server.getAPI("editor");
-    ctxmenuapi = server.getAPI("contextmenu");
-    this.server = server;
+  start() {
+    editor = <Editor>this.api.getAPI("editor");
+    ctxmenuapi = this.api.getAPI("contextmenu");
     $("#explorer").mousedown(function(event) {
       if (event.which == 1) {
         $("#explorer .active").removeClass("active");
@@ -149,26 +148,22 @@ export default class Explorer extends Plugin {
       e.preventDefault();
     });
 
-    let menuactionapi: MenuActionAPI = server.getAPI("menu_action");
+    let menuactionapi: MenuActionAPI = this.api.getAPI("menu_action");
     menuactionapi.on("file.new", function() {
       showCreateDialogFile();
     });
     menuactionapi.on("file.new_folder", function() {
       showCreateDialogFolder();
     });
-    startExplorer(server);
+    startExplorer(this.api);
   }
 
-  stop(server) {
-    this.server = server;
-  }
+  stop() {}
 
-  reload(server) {
-    this.server = server;
-  }
+  reload() {}
 }
 
-function startExplorer(server: ServerApi) {
+function startExplorer(api: PluginApi) {
   let explorer_openedfolders = ["/"];
   fs.watchFile(working_dir, {}, reloadExplorer);
   reloadExplorer();
@@ -176,8 +171,8 @@ function startExplorer(server: ServerApi) {
   async function reloadExplorer() {
     let dir = working_dir;
     let files = listFiles(dir);
-    for (let i in server.getAPI("explorer").orl)
-      files = server.getAPI("explorer").orl[i](files);
+    for (let i in api.getAPI("explorer").orl)
+      files = api.getAPI("explorer").orl[i](files);
 
     function generateHTMLTree(key, files) {
       function getIcon(file) {

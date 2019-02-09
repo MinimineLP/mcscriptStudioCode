@@ -1,6 +1,6 @@
 {
   "name": "Settings",
-  "url": "https://github.com/miniminelp/mcscriptStudioCode",
+  "url": "https://github.com/MinimineLP/mcscriptStudioCode/tree/master/plugins/settings",
   "author": "Minimine",
   "author-url": "https://github.com/miniminelp/",
   "version": "0.0.1",
@@ -21,10 +21,13 @@
   },
   "homepage": "https://github.com/MinimineLP/MCScriptStudioCode#readme",
   "dependencies": {
+    "@types/jquery": "^3.3.29",
     "jquery": "^3.3.1",
+    "marked": "^0.6.0",
     "sweetalert": "^2.1.2"
   },
   "devDependencies": {
+    "@types/marked": "^0.6.0",
     "@types/sweetalert": "^2.0.4"
   }
 }

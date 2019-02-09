@@ -4,7 +4,8 @@ import {
   openDevTools,
   PluginManager,
   toggleDevTools,
-  icon
+  icon,
+  SiteAPI
 } from "../@mcscriptstudiocode/mcscriptstudiocode";
 export {
   closeDevTools,
@@ -12,5 +13,6 @@ export {
   openDevTools,
   PluginManager,
   toggleDevTools,
+  SiteAPI,
   icon
 };

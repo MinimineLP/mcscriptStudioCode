@@ -1,7 +1,10 @@
 import * as $ from "jquery";
-import { PluginManager } from "mcscriptstudiocode";
+import {guid} from '@mcscriptstudiocode/util'
+import {Api} from '@mcscriptstudiocode/pluginmanager'
 
-export class SettingsAPI {
+export class SettingsAPI implements Api {
+  readonly name:string = "Settings";
+  readonly version:string = "0.0.1";
   frame: JQuery<HTMLElement>;
   sites: SettingsSite[] = [];
 
@@ -31,7 +34,7 @@ export class SettingsAPI {
     THIS.sites.forEach((e: SettingsSite) => {
       let li = document.createElement("li");
       let p = document.createElement("p");
-      li.id = PluginManager.guid();
+      li.id = guid();
       p.innerText = e.name;
 
       li.onclick = function() {
@@ -68,11 +71,5 @@ export interface SettingsSite {
 
 export let settingsapi = new SettingsAPI();
 
-settingsapi.push({
-  name: "install",
-  renderContent: function(): string | HTMLElement {
-    return "<h4>It works!</h4>";
-  }
-});
-
-require("./Plugins.js");
+require("./plugins.js");
+require("./install.js");

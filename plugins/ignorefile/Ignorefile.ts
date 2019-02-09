@@ -1,25 +1,20 @@
 import * as fs from "fs";
-import { ServerApi, Plugin } from "@mcscriptstudiocode/pluginmanager";
+import { Plugin } from "@mcscriptstudiocode/pluginmanager";
 import { ExplorerAPI } from "@mcscriptstudiocodeplugins/explorer";
 
 export default class ignorefile extends Plugin {
-  server: ServerApi;
 
-  setup(server) {
-    this.server = server;
+  setup() {
   }
 
-  start(server) {
-    this.server = server;
-    (<ExplorerAPI>server.getAPI("explorer")).onReload(afterExplorerReload);
+  start() {
+    (<ExplorerAPI>this.api.getAPI("explorer")).onReload(afterExplorerReload);
   }
 
-  stop(server) {
-    this.server = server;
+  stop() {
   }
 
-  reload(server) {
-    this.server = server;
+  reload() {
   }
 }
 

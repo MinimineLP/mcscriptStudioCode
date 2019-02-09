@@ -1,4 +1,5 @@
 "use strict";
+
 exports.__esModule = true;
 // Modules to control application life and create native browser window
 var electron_1 = require("electron");
@@ -10,16 +11,11 @@ var menumanager = new MenuManager_1["default"]();
 //require('electron-debug')({showDevTools: false}); // Debugs
 var icons = __dirname.replace(/\\/g, "/") + "/assets/icons/";
 var date = new Date();
-if (date.getMonth() == 11)
-    icons += "christmas/";
+if (date.getMonth() == 11) icons += "christmas/";
 var specialicondifficulty = 100;
 var icon = icons + "icon.png";
-var appdata = process.env.APPDATA ||
-    (process.platform == "darwin"
-        ? process.env.HOME + "Library/Preferences"
-        : "/var/local");
-if (!fs.existsSync(appdata + "/mcscriptStudioCode"))
-    fs.mkdirSync(appdata + "/mcscriptStudioCode");
+var appdata = process.env.APPDATA || (process.platform == "darwin" ? process.env.HOME + "Library/Preferences" : "/var/local");
+if (!fs.existsSync(appdata + "/mcscriptStudioCode")) fs.mkdirSync(appdata + "/mcscriptStudioCode");
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 var mainWindow;
@@ -51,7 +47,7 @@ function createWindow() {
 electron_1.app.on("ready", createWindow);
 if (Math.floor(Math.random() * specialicondifficulty) == 0) {
     var files = fs.readdirSync(icons + "special/");
-    var index = (Math.random() * files.length) | 0;
+    var index = Math.random() * files.length | 0;
     icon = icons + "special/" + files[index];
     console.log("Special icon: " + icon);
 }
@@ -74,18 +70,14 @@ electron_1.ipcMain.on("get_window", function (event, _arg) {
     event.returnValue = mainWindow;
 });
 electron_1.ipcMain.on("devtools", function (_event, arg) {
-    if (arg == "toggle")
-        mainWindow.webContents.toggleDevTools();
-    if (arg == "open")
-        mainWindow.webContents.openDevTools();
-    if (arg == "close")
-        mainWindow.webContents.closeDevTools();
+    if (arg == "toggle") mainWindow.webContents.toggleDevTools();
+    if (arg == "open") mainWindow.webContents.openDevTools();
+    if (arg == "close") mainWindow.webContents.closeDevTools();
 });
 electron_1.ipcMain.on("get_folder", function (event, arg) {
-    if (arg == "get_folder")
-        event.returnValue = electron_1.dialog.showOpenDialog({
-            properties: ["openFile", "openDirectory", "multiSelections"]
-        });
+    if (arg == "get_folder") event.returnValue = electron_1.dialog.showOpenDialog({
+        properties: ["openFile", "openDirectory", "multiSelections"]
+    });
 });
 electron_1.ipcMain.on("get_icon", function (event) {
     event.returnValue = icon;
@@ -110,9 +102,7 @@ electron_1.ipcMain.on("alert", function (event, arg) {
         frame: false
     });
     arg.val = arg.val || "";
-    var promptHtml = '<label for="val">' +
-        arg +
-        "</label>\
+    var promptHtml = '<label for="val">' + arg + "</label>\
   <button onclick=\"require('electron').ipcRenderer.send('prompt-response', 1).value);window.close()\">Ok</button>\
   <button onclick=\"window.close()\">Cancel</button>\
   <style>body {font-family: sans-serif;} button {float:right; margin-left: 10px;} label,input {margin-bottom: 10px; width: 100%; display:block;}</style>";
@@ -142,12 +132,8 @@ electron_1.ipcMain.on("prompt", function (event, arg) {
         frame: false
     });
     arg.val = arg.val || "";
-    var promptHtml = '<label for="val">' +
-        arg.title +
-        '</label>\
-  <input id="val" value="' +
-        arg.val +
-        "\" autofocus />\
+    var promptHtml = '<label for="val">' + arg.title + '</label>\
+  <input id="val" value="' + arg.val + "\" autofocus />\
   <button onclick=\"require('electron').ipcRenderer.send('prompt-response', document.getElementById('val').value);window.close()\">Ok</button>\
   <button onclick=\"window.close()\">Cancel</button>\
   <style>body {font-family: sans-serif;} button {float:right; margin-left: 10px;} label,input {margin-bottom: 10px; width: 100%; display:block;}</style>";
@@ -164,3 +150,4 @@ electron_1.ipcMain.on("prompt-response", function (_event, arg) {
     }
     promptResponse = arg;
 });
+//# sourceMappingURL=main.js.map

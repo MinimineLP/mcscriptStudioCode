@@ -1,1 +1,59 @@
-"use strict";exports.__esModule=!0;var ContextMenuPointBuildingOptions=function(){};exports.ContextMenuPointBuildingOptions=ContextMenuPointBuildingOptions;var ContextMenuPoint=function(){function n(n){this.name=n.name,this.click=n.click,this.subs=n.subs}return n.prototype.render=function(){var n=document.createElement("li"),t=document.createElement("p");return t.innerText=this.name,n.appendChild(t),this.subs&&n.appendChild(this.subs.render()),this.click&&n.addEventListener("click",this.click),n},n}();exports.ContextMenuPoint=ContextMenuPoint;var ContextMenu=function(){function n(n){void 0===n&&(n=[]),this.points=n}return n.prototype.push=function(){for(var n=[],t=0;t<arguments.length;t++)n[t]=arguments[t];this.points.push(n)},n.prototype.render=function(){var e=document.createElement("div");return this.points.forEach(function(n){var t=document.createElement("ul");n.forEach(function(n){t.appendChild(n.render())}),e.appendChild(t)}),e},n}();exports.ContextMenu=ContextMenu,global.ContextMenu=ContextMenu,global.ContextMenuPoint=ContextMenuPoint,global.ContextMenuPointBuildingOptions=ContextMenuPointBuildingOptions;
+"use strict";
+
+exports.__esModule = true;
+var ContextMenuPointBuildingOptions = /** @class */function () {
+    function ContextMenuPointBuildingOptions() {}
+    return ContextMenuPointBuildingOptions;
+}();
+exports.ContextMenuPointBuildingOptions = ContextMenuPointBuildingOptions;
+var ContextMenuPoint = /** @class */function () {
+    function ContextMenuPoint(options) {
+        this.name = options.name;
+        this.click = options.click;
+        this.subs = options.subs;
+    }
+    ContextMenuPoint.prototype.render = function () {
+        var li = document.createElement("li");
+        var p = document.createElement("p");
+        p.innerText = this.name;
+        li.appendChild(p);
+        if (this.subs) li.appendChild(this.subs.render());
+        if (this.click) li.addEventListener("click", this.click);
+        return li;
+    };
+    return ContextMenuPoint;
+}();
+exports.ContextMenuPoint = ContextMenuPoint;
+var ContextMenu = /** @class */function () {
+    function ContextMenu(points) {
+        if (points === void 0) {
+            points = [];
+        }
+        this.points = points;
+    }
+    ContextMenu.prototype.push = function () {
+        var e = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            e[_i] = arguments[_i];
+        }
+        this.points.push(e);
+    };
+    ;
+    ContextMenu.prototype.render = function () {
+        var ret = document.createElement("div");
+        this.points.forEach(function (i) {
+            var ul = document.createElement("ul");
+            i.forEach(function (p) {
+                ul.appendChild(p.render());
+            });
+            ret.appendChild(ul);
+        });
+        return ret;
+    };
+    return ContextMenu;
+}();
+exports.ContextMenu = ContextMenu;
+global.ContextMenu = ContextMenu;
+global.ContextMenuPoint = ContextMenuPoint;
+global.ContextMenuPointBuildingOptions = ContextMenuPointBuildingOptions;
+//# sourceMappingURL=util.js.map

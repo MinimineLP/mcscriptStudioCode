@@ -1,1 +1,5 @@
-"use strict";exports.__esModule=!0,module.exports={ContextMenu:ContextMenu,ContextMenuPoint:ContextMenuPoint,ContextMenuPointBuildingOptions:ContextMenuPointBuildingOptions,ContextMenuAPI:ContextMenuAPI};
+"use strict";
+
+exports.__esModule = true;
+module.exports = { ContextMenu: ContextMenu, ContextMenuPoint: ContextMenuPoint, ContextMenuPointBuildingOptions: ContextMenuPointBuildingOptions, ContextMenuAPI: ContextMenuAPI };
+//# sourceMappingURL=Contextmenu.js.map

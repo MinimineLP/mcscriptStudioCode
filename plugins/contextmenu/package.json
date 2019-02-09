@@ -1,21 +1,24 @@
 {
-  "name": "contextmenu",
-  "url": "https://github.com/miniminelp/MCScriptStudioCode",
+  "name": "Contextmenu",
+  "url": "https://github.com/MinimineLP/mcscriptStudioCode/tree/master/plugins/Contextmenu",
   "author": "Minimine",
   "author-url": "https://github.com/miniminelp/",
   "version": "0.0.1",
-  "main": "contextmenu.js",
+  "main": "Contextmenu.js",
+  "pluginDependencies": [],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MinimineLP/MCScriptStudioCode.git"
+    "url": "git+https://github.com/MinimineLP/MCScriptStudioCode-plugin-quick-start.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MinimineLP/MCScriptStudioCode/issues"
+    "url": "https://github.com/MinimineLP/MCScriptStudioCode-plugin-quick-start/issues"
   },
-  "homepage": "https://github.com/MinimineLP/MCScriptStudioCode#readme",
+  "homepage": "https://github.com/MinimineLP/MCScriptStudioCode-plugin-quick-start#readme",
   "dependencies": {
     "jquery": "^3.3.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/jquery": "^3.3.29"
+  }
 }

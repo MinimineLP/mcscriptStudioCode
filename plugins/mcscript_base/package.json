@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/MinimineLP/MCScriptStudioCode#readme",
   "dependencies": {
-    "mcscript": "^0.2.0"
+    "mcscript": "^0.2.1"
   },
   "devDependencies": {}
 }

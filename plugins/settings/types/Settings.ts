@@ -1,4 +1,7 @@
-declare class SettingsAPI {
+import {Api} from '@mcscriptstudiocode/pluginmanager';
+declare class SettingsAPI implements Api {
+  readonly name:string;
+  readonly version:string;
   frame: JQuery<HTMLElement>;
   sites: SettingsSite[];
 

@@ -1,0 +1,1 @@
+{"version":3,"sources":["CancelableEvent.js"],"names":["exports","__esModule"],"mappings":"AAAA;;AACAA,QAAQC,UAAR,GAAqB,IAArB","file":"CancelableEvent.js","sourcesContent":["\"use strict\";\nexports.__esModule = true;\n"]}

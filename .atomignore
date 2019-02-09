@@ -2,3 +2,12 @@ node_modules
 *.7z
 package-lock.json
 *.map
+.github
+backups
+builds
+.gitattributes
+*.bat
+PULL_REQUEST_TEMPLATE.md
+*.js
+!gulpfile.js
+plugins

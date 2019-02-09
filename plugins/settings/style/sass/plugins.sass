@@ -1,0 +1,119 @@
+$background1: #414141
+$background2: #262626
+$background3: #24364d
+$border1: #000
+$font-color: #fff
+$close1: #fff
+$close2: #ff0000
+#settings_plugins
+  width: 100%
+  height: 100%
+  margin: 0px
+  padding: 0px
+  overflow: hidden
+  overflow-y: auto
+  &::-webkit-scrollbar-track
+  	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3)
+  	border-radius: 10px
+  	background-color: #404040
+
+  &::-webkit-scrollbar
+  	width: 9px
+  	background-color: #404040
+  	border-radius: 10px
+
+  &::-webkit-scrollbar-thumb
+  	border-radius: 10px
+  	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3)
+  	background-color: rgb(35,35,35)
+
+  &::selection
+    background-color: rgba(0,0,0,0)
+
+  ul.settings_plugins.menu
+    border-right: 1px solid $border1
+    display: inline-block
+    margin: 0px
+    width: 100%
+    height: 100%
+    overflow: auto
+    padding: 0px
+    user-select: none
+
+    li
+      list-style: none
+      margin: 0px
+      padding: 20px
+      transition: 100ms
+      cursor: pointer
+
+      &.active
+        background-color: $background1
+
+      &:hover
+        background-color: $background3
+      & + li
+        border-top: 1px solid $border1
+
+      p
+        margin: 0px
+        color: $font-color
+
+  .settings_plugins.content
+    color: $font-color
+    padding: 10px
+
+    div.infos
+      border: 1px solid $border1
+
+      table
+        width: 100%
+        padding: 0px
+
+        tr
+          width: 100%
+          margin: 0px
+          padding: 0px
+
+          th
+            color: $font-color
+            margin: 0px
+            padding: 0px
+            width: 25%
+            text-align: left
+            overflow: hidden
+            display: inline-block
+
+            & + th
+              width: 75%
+              text-align: right
+
+    div.config
+      border: 0px
+      margin: 0px
+      padding: 0px
+
+      & .breakpoints
+        width: .8em
+
+      & .breakpoint
+        color: #822
+
+      & .CodeMirror
+        width: 100%
+        height: 400px
+
+    div.readme
+      border: 1px solid $border1
+      margin: 0px
+      padding: 10px
+
+      div.readme-content
+        a
+          color: #8b8b8b
+
+          &:hover
+            color: #c6c6c6
+
+          &:active
+            color: #c6c6c6

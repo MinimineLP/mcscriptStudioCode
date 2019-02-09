@@ -1,4 +1,4 @@
-import { ServerApi, Plugin } from "@mcscriptstudiocode/pluginmanager";
+import { Plugin } from "@mcscriptstudiocode/pluginmanager";
 import { Config, FileFormatters } from "@mcscriptstudiocode/Config";
 import { ShortcutbarAPI } from "@mcscriptstudiocodeplugins/shortcutbar";
 declare let working_dir: string;
@@ -9,14 +9,11 @@ import * as fs from "fs";
 let config: Config;
 
 export default class Shortcutbar extends Plugin {
-  server: ServerApi;
 
-  setup(server: ServerApi) {
-    this.server = server;
+  setup() {
   }
 
-  start(server: ServerApi) {
-    this.server = server;
+  start() {
     config = new Config(`${__dirname}/config.yml`, FileFormatters.Yaml);
     loadConfig();
     let b: boolean = true;
@@ -27,7 +24,7 @@ export default class Shortcutbar extends Plugin {
         mcscript.compile(working_dir, true);
       b = true;
     });
-    let api: ShortcutbarAPI = server.getAPI("shortcutbar");
+    let api: ShortcutbarAPI = <ShortcutbarAPI>this.api.getAPI("shortcutbar");
     api.addButton(
       "mcscript_compile",
       "compile mcscript files",
@@ -38,12 +35,10 @@ export default class Shortcutbar extends Plugin {
     );
   }
 
-  stop(server: ServerApi) {
-    this.server = server;
+  stop() {
   }
 
-  reload(server: ServerApi) {
-    this.server = server;
+  reload() {
   }
 }
 

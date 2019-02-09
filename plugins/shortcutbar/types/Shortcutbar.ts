@@ -1,10 +1,12 @@
-import { ServerApi } from "@mcscriptstudiocode/pluginmanager";
+import { PluginApi, Api } from "@mcscriptstudiocode/pluginmanager";
 
-declare class ShortcutbarAPI {
+declare class ShortcutbarAPI implements Api {
+  name: string;
+  version: string;
   id: string;
-  server: ServerApi;
+  server: PluginApi;
 
-  constructor(server: ServerApi);
+  constructor(server: PluginApi);
 
   addButton(id: string, name: string, icon: string, onclick: any): void;
 }

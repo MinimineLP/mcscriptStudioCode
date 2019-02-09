@@ -1,9 +1,3 @@
-declare class ShortcutbarAPI {
-  id: string;
-  server: ServerApi;
-  constructor(server: ServerApi);
-  addButton(id: string, name: string, icon: string, onclick: any);
-}
 declare let working_dir: string;
 
 import * as SimpleRcon from "simple-rcon";
@@ -16,27 +10,25 @@ import * as $ from "jquery";
 import * as swal from "sweetalert";
 import { DivConsole } from "./scripts/DivConsole";
 import { Config, FileFormatters } from "@mcscriptstudiocode/config";
-import { ServerApi, Plugin, guid } from "@mcscriptstudiocode/pluginmanager";
+import { Plugin } from "@mcscriptstudiocode/pluginmanager";
+import {ShortcutbarAPI} from "@mcscriptstudiocodeplugins/shortcutbar";
+import { guid } from "@mcscriptstudiocode/util";
 
 let divconsole = new DivConsole();
 const tmp = __dirname + "/temp";
 let config: Config;
 
 export default class Testserver extends Plugin {
-  server: ServerApi;
   mcserver: Server = null;
   hasActiveServer: Function;
 
-  setup(server: ServerApi) {
-    this.server = server;
-    server.addElement(Fs.readFileSync(`${__dirname}/console.html`, "utf8"));
-    server.addStylesheet(`${__dirname}/css/testserver.min.css`);
+  setup() {
+    this.api.addElement(Fs.readFileSync(`${__dirname}/html/console.min.html`, "utf8"));
+    this.api.addStylesheet(`${__dirname}/style/css/testserver.min.css`);
     if (Fs.existsSync(tmp)) deleteFolderRecursive(tmp);
   }
 
-  start(server: ServerApi) {
-    this.server = server;
-
+  start() {
     config = new Config(`${__dirname}/config.yml`, FileFormatters.Yaml);
     loadConfig();
     setupDrag();
@@ -46,7 +38,7 @@ export default class Testserver extends Plugin {
 
     if (!Fs.existsSync(tmp)) Fs.mkdirSync(tmp);
 
-    let api: ShortcutbarAPI = server.getAPI("shortcutbar");
+    let api: ShortcutbarAPI = <ShortcutbarAPI>this.api.getAPI("shortcutbar");
     let activeserver = false;
     let mcserver = this.mcserver;
     let id: string;
@@ -270,14 +262,12 @@ export default class Testserver extends Plugin {
     };
   }
 
-  stop(server: ServerApi) {
-    this.server = server;
+  stop() {
     if (this.hasActiveServer()) this.mcserver.stop();
     if (Fs.existsSync(tmp)) deleteFolderRecursive(tmp);
   }
 
-  reload(server: ServerApi) {
-    this.server = server;
+  reload() {
     if (this.mcserver != null) this.mcserver.stop();
     if (Fs.existsSync(tmp)) deleteFolderRecursive(tmp);
     if (!Fs.existsSync(tmp)) Fs.mkdirSync(tmp);

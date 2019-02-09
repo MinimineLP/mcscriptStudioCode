@@ -129,12 +129,10 @@ CodeMirror.defineSimpleMode("mcscript", {
     lineComment: "//"
   }
 });
-/*
+
 (function() {
   "use strict";
-
   var WORD = /[\w$]+/g, RANGE = 500;
-
   CodeMirror.registerHelper("hint", "mcscript", function(editor, options) {
     var word = options && options.word || WORD;
     var range = options && options.range || RANGE;
@@ -143,7 +141,6 @@ CodeMirror.defineSimpleMode("mcscript", {
     while (end < curLine.length && word.test(curLine.charAt(end))) ++end;
     while (start && word.test(curLine.charAt(start - 1))) --start;
     var curWord = start != end && curLine.slice(start, end);
-
     var list = [], seen = {};
     function scan(dir) {
       var line = cur.line, end = Math.min(Math.max(line + dir * range, editor.firstLine()), editor.lastLine()) + dir;
@@ -163,4 +160,3 @@ CodeMirror.defineSimpleMode("mcscript", {
     return {list: list, from: CodeMirror.Pos(cur.line, start), to: CodeMirror.Pos(cur.line, end)};
   });
 })();
-*/

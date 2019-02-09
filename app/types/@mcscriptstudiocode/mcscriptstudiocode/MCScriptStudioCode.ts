@@ -5,10 +5,12 @@ declare let icon: string;
 
 import * as PluginManager from "../pluginmanager";
 import * as Config from "../config";
+import * as SiteAPI from "../siteapi";
 
 export {
   Config,
   PluginManager,
+  SiteAPI,
   toggleDevTools,
   openDevTools,
   closeDevTools,
