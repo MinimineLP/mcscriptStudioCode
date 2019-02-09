@@ -1,10 +1,6 @@
 node_modules
 .mcscriptStudioCodeIgnore
 .mcscriptStudioCode
-builds/linux/ia32/mcscriptStudioCode-linux-ia32
-builds/linux/x64/mcscriptStudioCode-linux-x64
-builds/win32/ia32/mcscriptStudioCode-win32-ia32
-builds/win32/x64/mcscriptStudioCode-win32-x64
 backups
 backup-plugins.bat
 backup-app.bat
@@ -15,5 +11,4 @@ minified
 no-comments
 *.7z
 package-lock.json
-builds
-builds
+builds/
