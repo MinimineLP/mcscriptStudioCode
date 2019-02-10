@@ -1,9 +1,9 @@
 # MCScriptStudioCode
+[Description](#description) | [Downloads](#downloads) | [MIT License](LICENSE) | [Issues](https://github.com/MinimineLP/mcscriptStudioCode/issues)
 ## Description
 MCScriptStudioCode is an editor for [mcscript](https://github.com/stevertus/mcscript). At the moment it is in **beta**, so there are missing features, and propably bugs.
 
-## Install
-Select the version that works best for you, and download it in the "Downloads" section below.
+![image](https://user-images.githubusercontent.com/32415985/52536544-3cb13b80-2d5c-11e9-9d9b-c8d218a39447.png)
 
 ## License
 MIT license, see [here](https://github.com/MinimineLP/mcscriptStudioCode/blob/master/LICENSE)
@@ -22,8 +22,6 @@ MIT license, see [here](https://github.com/MinimineLP/mcscriptStudioCode/blob/ma
   - x64: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[portable (.zip)](https://github.com/MinimineLP/mcscriptStudioCode/releases/download/0.0.3/mcscriptStudioCode-linux-x64-portable.zip) | [portable (.tar.gz)](https://github.com/MinimineLP/mcscriptStudioCode/releases/download/0.0.3/mcscriptStudioCode-linux-x64-portable.tar.gz)
   - arm64: &nbsp;&nbsp;[portable (.zip)](https://github.com/MinimineLP/mcscriptStudioCode/releases/download/0.0.3/mcscriptStudioCode-linux-arm64-portable.zip) | [portable (.tar.gz)](https://github.com/MinimineLP/mcscriptStudioCode/releases/download/0.0.3/mcscriptStudioCode-linux-arm64-portable.tar.gz)
   - armv7l: &nbsp;[portable (.zip)](https://github.com/MinimineLP/mcscriptStudioCode/releases/download/0.0.3/mcscriptStudioCode-linux-armv7l-portable.zip) | [portable (.tar.gz)](https://github.com/MinimineLP/mcscriptStudioCode/releases/download/0.0.3/mcscriptStudioCode-linux-armv7l-portable.tar.gz)
-
-![image](https://user-images.githubusercontent.com/32415985/52536544-3cb13b80-2d5c-11e9-9d9b-c8d218a39447.png)
 
 You find the downloads [here](https://github.com/MinimineLP/mcscriptStudioCode/releases/tag/0.0.3)
 
