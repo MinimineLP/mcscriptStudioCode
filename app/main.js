@@ -1,10 +1,69 @@
 "use strict";
 
 exports.__esModule = true;
-// Modules to control application life and create native browser window
 var electron_1 = require("electron");
 var fs = require("fs");
 var MenuManager_1 = require("./src/scripts/MenuManager");
+// Modules to control application life and create native browser window
+if (require("electron-squirrel-startup") == true) {
+    (function () {
+        console.log(require("electron-squirrel-startup"));
+        // this should be placed at top of main.js to handle setup events quickly
+        if (handleSquirrelEvent()) {
+            // squirrel event handled and app will exit in 1000ms, so don't do anything else
+            return;
+        }
+        function handleSquirrelEvent() {
+            if (process.argv.length === 1) {
+                return false;
+            }
+            var ChildProcess = require("child_process");
+            var path = require("path");
+            var appFolder = path.resolve(process.execPath, "..");
+            var rootAtomFolder = path.resolve(appFolder, "..");
+            var updateDotExe = path.resolve(path.join(rootAtomFolder, "Update.exe"));
+            var exeName = path.basename(process.execPath);
+            var spawn = function spawn(command, args) {
+                var spawnedProcess;
+                try {
+                    spawnedProcess = ChildProcess.spawn(command, args, {
+                        detached: true
+                    });
+                } catch (error) {}
+                return spawnedProcess;
+            };
+            var spawnUpdate = function spawnUpdate(args) {
+                return spawn(updateDotExe, args);
+            };
+            var squirrelEvent = process.argv[1];
+            switch (squirrelEvent) {
+                case "--squirrel-install":
+                case "--squirrel-updated":
+                    // Optionally do things such as:
+                    // - Add your .exe to the PATH
+                    // - Write to the registry for things like file associations and
+                    //   explorer context menus
+                    // Install desktop and start menu shortcuts
+                    spawnUpdate(["--createShortcut", exeName]);
+                    setTimeout(electron_1.app.quit, 1000);
+                    return true;
+                case "--squirrel-uninstall":
+                    // Undo anything you did in the --squirrel-install and
+                    // --squirrel-updated handlers
+                    // Remove desktop and start menu shortcuts
+                    spawnUpdate(["--removeShortcut", exeName]);
+                    setTimeout(electron_1.app.quit, 1000);
+                    return true;
+                case "--squirrel-obsolete":
+                    // This is called on the outgoing version of your app before
+                    // we update to the new version - it's the opposite of
+                    // --squirrel-updated
+                    electron_1.app.quit();
+                    return true;
+            }
+        }
+    })();
+}
 var menumanager = new MenuManager_1["default"]();
 //menumanager.pushItem("File", {label:"Save",accelerator: 'CmdOrCtrl+S'},[0])
 //menumanager.pushItem("File", {label:"Save as",accelerator: 'CmdOrCtrl+Shift+S'},[0])
@@ -12,7 +71,7 @@ var menumanager = new MenuManager_1["default"]();
 var icons = __dirname.replace(/\\/g, "/") + "/assets/icons/";
 var date = new Date();
 if (date.getMonth() == 11) icons += "christmas/";
-var specialicondifficulty = 100;
+var specialicondifficulty = 10;
 var icon = icons + "icon.png";
 var appdata = process.env.APPDATA || (process.platform == "darwin" ? process.env.HOME + "Library/Preferences" : "/var/local");
 if (!fs.existsSync(appdata + "/mcscriptStudioCode")) fs.mkdirSync(appdata + "/mcscriptStudioCode");

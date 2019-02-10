@@ -1,7 +1,7 @@
 var electronInstaller = require('electron-winstaller');
 
 console.log("Creating WinInstaller win32 ia32");
-let path="builds/win32/ia32"
+let path = "builds/win32/ia32"
 resultPromise = electronInstaller.createWindowsInstaller({
   appDirectory: `${path}/mcscriptStudioCode-win32-ia32`,
   outputDirectory: path,

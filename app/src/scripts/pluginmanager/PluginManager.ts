@@ -6,7 +6,7 @@ import PluginApi from "./PluginApi";
 import Plugin from "./Plugin";
 import Dependency from "./Dependency";
 import Event from "./events/Event";
-import * as Util from "../util";
+import * as Util from "../Util";
 
 /**
  * @class PluginManager

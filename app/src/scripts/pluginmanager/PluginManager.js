@@ -7,7 +7,7 @@ var extract = require("extract-zip");
 var SiteAPI = require("../SiteApi");
 var PluginApi_1 = require("./PluginApi");
 var Dependency_1 = require("./Dependency");
-var Util = require("../util");
+var Util = require("../Util");
 /**
  * @class PluginManager
  * @author Minimine <https://github.com/miniminelp>

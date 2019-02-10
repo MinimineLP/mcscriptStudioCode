@@ -16,6 +16,7 @@
     "zip-folder": "^1.0.0"
   },
   "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
     "extract-zip": "^1.6.7",
     "jquery": "^3.3.1",
     "js-yaml": "^3.12.0",

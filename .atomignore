@@ -8,6 +8,8 @@ builds
 .gitattributes
 *.bat
 PULL_REQUEST_TEMPLATE.md
-*.js
+#*.js
+!win32-ia32.js
+!win32-x64.js
 !gulpfile.js
 #plugins
