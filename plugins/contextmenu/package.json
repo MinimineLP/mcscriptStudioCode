@@ -5,7 +5,6 @@
   "author-url": "https://github.com/miniminelp/",
   "version": "0.0.1",
   "main": "Contextmenu.js",
-  "pluginDependencies": [],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MinimineLP/MCScriptStudioCode-plugin-quick-start.git"

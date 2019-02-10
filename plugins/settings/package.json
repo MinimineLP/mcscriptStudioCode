@@ -5,12 +5,6 @@
   "author-url": "https://github.com/miniminelp/",
   "version": "0.0.1",
   "main": "settings.js",
-  "pluginDependencies": [
-    {
-      "name": "shortcutbar",
-      "url": "https://raw.githubusercontent.com/MinimineLP/MCScriptStudioCode/master/plugins/shortcutbar/plugin.json"
-    }
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MinimineLP/MCScriptStudioCode.git"

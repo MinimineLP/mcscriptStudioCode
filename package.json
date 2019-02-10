@@ -17,6 +17,7 @@
     "babel-preset-latest": "^6.24.1",
     "browser-sync": "^2.24.4",
     "electron-winstaller": "^2.6.4",
+    "fs-extra": "^7.0.1",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^5.0.0",
     "gulp-babel": "^7.0.1",
@@ -33,7 +34,8 @@
     "gulp-typescript": "^5.0.0",
     "gulp-uglify": "^3.0.0",
     "node-sass": "^4.9.0",
-    "typescript": "3.0.1"
+    "typescript": "3.0.1",
+    "zip-folder": "^1.0.0"
   },
   "dependencies": {}
 }
