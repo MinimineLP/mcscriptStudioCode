@@ -8,7 +8,7 @@
   "pluginDependencies": [
     {
       "name": "shortcutbar",
-      "url": "https://raw.githubusercontent.com/MinimineLP/MCScriptStudioCode/master/plugins/editor/plugin.json"
+      "url": "https://raw.githubusercontent.com/MinimineLP/MCScriptStudioCode/master/plugins/editor/versions.json"
     }
   ],
   "repository": {
